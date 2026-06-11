@@ -1,85 +1,1031 @@
-body {
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-margin:0;
-font-family: Arial, sans-serif;
-background:#fff0f5;
-color:#333;
-text-align:center;
+
+body{
+
+    font-family:'Segoe UI',Arial,sans-serif;
+
+    background:
+    radial-gradient(circle at top,#263fa3,#070014 80%);
+
+    color:white;
+
+    overflow-x:hidden;
 
 }
 
 
-section {
 
-padding:60px 20px;
+
+
+
+/* =====================
+   FUNDO DO MAR
+===================== */
+
+
+.mar{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
 
 }
 
 
-.inicio {
 
-height:100vh;
+.animal{
+
+    position:absolute;
+
+    font-size:45px;
+
+    opacity:.35;
+
+    animation:
+    nadar 18s linear infinite;
+
+}
+
+
+
+.peixe{
+
+    top:15%;
+
+    right:-100px;
+
+}
+
+
+
+.peixe2{
+
+    top:35%;
+
+    right:-150px;
+
+    animation-delay:4s;
+
+}
+
+
+
+.tartaruga{
+
+    top:60%;
+
+    right:-120px;
+
+    animation-delay:8s;
+
+}
+
+
+
+.baleia{
+
+    top:78%;
+
+    right:-180px;
+
+    animation-delay:12s;
+
+}
+
+
+
+.polvo{
+
+    top:45%;
+
+    right:-120px;
+
+    animation-delay:6s;
+
+}
+
+
+
+
+
+@keyframes nadar{
+
+
+0%{
+
+transform:translateX(0);
+
+}
+
+
+
+100%{
+
+transform:translateX(-130vw);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+section{
+
+
+min-height:100vh;
+
+
+padding:60px 25px;
+
 
 display:flex;
+
 flex-direction:column;
+
+
 justify-content:center;
+
+
+align-items:center;
+
+
+position:relative;
+
+
+z-index:5;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================
+   TEXTOS
+===================== */
+
+
+h1{
+
+
+font-size:48px;
+
+
+margin-bottom:20px;
+
+
 
 background:
-linear-gradient(
-rgba(255,0,100,.3),
-rgba(255,0,100,.3)
-),
-url("fotos/fundo.jpg");
 
-background-size:cover;
+linear-gradient(
+90deg,
+#7ee8ff,
+#b084ff
+);
+
+
+
+-webkit-background-clip:text;
+
+
+color:transparent;
+
+
+filter:
+
+drop-shadow(0 0 20px #5c7cff);
+
+
+}
+
+
+
+
+
+h2{
+
+
+font-size:30px;
+
+
+margin-bottom:25px;
+
+
+color:#8eeaff;
+
+
+}
+
+
+
+
+
+p{
+
+
+max-width:650px;
+
+
+font-size:18px;
+
+
+line-height:1.8;
+
+
+text-align:center;
+
+
+color:#eeeeff;
+
+
+margin:15px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================
+   BOTÃO
+===================== */
+
+
+button{
+
+
+padding:16px 35px;
+
+
+border:none;
+
+
+border-radius:50px;
+
+
+font-size:18px;
+
+
 color:white;
 
+
+background:
+
+linear-gradient(
+90deg,
+#277cff,
+#a044ff
+);
+
+
+
+box-shadow:
+
+0 0 35px #705cff;
+
+
+
+transition:.3s;
+
+
 }
 
 
 
-h1 {
-
-font-size:45px;
-
-}
+button:active{
 
 
-h2 {
+transform:scale(.9);
 
-color:#e91e63;
 
 }
 
 
 
-.galeria {
+
+
+
+
+
+
+/* =====================
+   FOTO PRINCIPAL
+===================== */
+
+
+.foto-principal{
+
+
+width:85%;
+
+
+max-width:350px;
+
+
+border-radius:30px;
+
+
+box-shadow:
+
+0 30px 80px black;
+
+
+animation:
+
+flutuar 4s infinite;
+
+
+}
+
+
+
+
+
+@keyframes flutuar{
+
+
+50%{
+
+
+transform:translateY(-15px);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================
+   MUSICA
+===================== */
+
+
+.player-box{
+
+
+width:100%;
+
+
+max-width:420px;
+
+
+
+background:
+
+rgba(255,255,255,.1);
+
+
+
+padding:25px;
+
+
+
+border-radius:25px;
+
+
+
+backdrop-filter:blur(15px);
+
+
+
+border:
+
+1px solid rgba(255,255,255,.2);
+
+
+}
+
+
+
+
+
+audio{
+
+
+width:100%;
+
+
+margin-top:20px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================
+   DATAS
+===================== */
+
+
+.data{
+
+
+font-size:32px;
+
+
+font-weight:bold;
+
+
+letter-spacing:5px;
+
+
+color:#9feaff;
+
+
+
+text-shadow:
+
+0 0 25px #4adfff;
+
+
+}
+
+
+
+
+
+
+
+.contador-beijo,
+.tempo{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(3,1fr);
+
+
+gap:15px;
+
+
+width:100%;
+
+
+max-width:400px;
+
+
+}
+
+
+
+
+.contador-beijo div,
+.tempo div{
+
+
+background:
+
+rgba(255,255,255,.12);
+
+
+
+padding:20px 10px;
+
+
+
+border-radius:22px;
+
+
+
+backdrop-filter:blur(15px);
+
+
+
+border:
+
+1px solid rgba(255,255,255,.2);
+
+
+}
+
+
+
+
+
+
+.contador-beijo span,
+.tempo span{
+
+
+display:block;
+
+
+font-size:32px;
+
+
+font-weight:bold;
+
+
+
+color:#8eeaff;
+
+
+text-shadow:
+
+0 0 20px #4ccfff;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================
+   FOTOS
+===================== */
+
+
+
+.galeria{
+
 
 display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
+
+
+width:100%;
+
+
+gap:20px;
+
+
+overflow-x:auto;
+
+
+scroll-snap-type:x mandatory;
+
 
 }
 
 
-.galeria img {
 
-width:250px;
-height:300px;
+.galeria::-webkit-scrollbar{
+
+
+display:none;
+
+
+}
+
+
+
+
+
+
+.card{
+
+
+min-width:85%;
+
+
+scroll-snap-align:center;
+
+
+background:
+
+rgba(255,255,255,.1);
+
+
+padding:20px;
+
+
+border-radius:25px;
+
+
+backdrop-filter:blur(15px);
+
+
+
+transition:.3s;
+
+
+}
+
+
+
+
+
+.card img{
+
+
+width:100%;
+
+
+height:320px;
+
+
 object-fit:cover;
+
 
 border-radius:20px;
 
-box-shadow:0 5px 20px #aaa;
 
 }
 
 
 
-p {
 
-font-size:20px;
-line-height:1.6;
+
+.card h3{
+
+
+margin-top:15px;
+
+
+font-size:24px;
+
+
+color:#a8edff;
+
+
+}
+
+
+
+
+
+.card p{
+
+
+font-size:16px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================
+   CARTA
+===================== */
+
+
+
+.envelope{
+
+
+width:320px;
+
+
+height:220px;
+
+
+position:relative;
+
+
+cursor:pointer;
+
+
+}
+
+
+
+
+
+
+
+.envelope:before{
+
+
+content:"";
+
+
+position:absolute;
+
+
+inset:0;
+
+
+
+background:
+
+linear-gradient(
+135deg,
+#703cff,
+#00bfff
+);
+
+
+
+border-radius:20px;
+
+
+
+box-shadow:
+
+0 30px 70px #005eff;
+
+
+
+z-index:2;
+
+
+}
+
+
+
+
+
+
+
+.tampa{
+
+
+position:absolute;
+
+
+
+width:0;
+
+
+height:0;
+
+
+
+border-left:160px solid transparent;
+
+
+border-right:160px solid transparent;
+
+
+
+border-top:120px solid #83eaff;
+
+
+
+transform-origin:top;
+
+
+
+transition:.8s;
+
+
+
+z-index:5;
+
+
+}
+
+
+
+
+
+
+
+
+.papel{
+
+
+position:absolute;
+
+
+width:280px;
+
+
+height:240px;
+
+
+left:20px;
+
+
+top:10px;
+
+
+
+background:white;
+
+
+padding:25px;
+
+
+border-radius:15px;
+
+
+
+opacity:0;
+
+
+
+z-index:1;
+
+
+
+transition:
+
+transform 1s ease,
+opacity .5s;
+
+
+
+overflow:hidden;
+
+
+}
+
+
+
+
+
+.papel h3{
+
+
+color:#347cff;
+
+
+}
+
+
+
+
+
+.papel p{
+
+
+color:#333;
+
+
+font-size:15px;
+
+
+line-height:1.5;
+
+
+}
+
+
+
+
+
+
+
+.envelope.aberto .tampa{
+
+
+transform:
+
+rotateX(180deg);
+
+
+}
+
+
+
+
+
+
+
+.envelope.aberto .papel{
+
+
+opacity:1;
+
+
+transform:
+
+translateY(-160px);
+
+
+}
+
+
+
+
+
+
+
+.envelope.sumir .papel{
+
+
+transform:
+
+translate(230px,-160px)
+rotate(8deg);
+
+
+
+opacity:0;
+
+
+}
+
+
+
+
+
+
+
+
+
+.clique{
+
+
+color:#aaa;
+
+
+}
+
+
+
+
+
+
+
+
+
+@media(max-width:600px){
+
+
+
+h1{
+
+font-size:40px;
+
+}
+
+
+
+h2{
+
+font-size:26px;
+
+}
+
+
+
+p{
+
+font-size:16px;
+
+}
+
+
+
+.card img{
+
+height:280px;
+
+}
+
+
+
+.animal{
+
+font-size:38px;
+
+}
+
 
 }
