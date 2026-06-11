@@ -1,14 +1,10 @@
-// =======================
-// ROLAGEM
-// =======================
-
 function irParaHistoria(){
 
-    document
-    .getElementById("historia")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
+document
+.getElementById("historia")
+.scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
@@ -17,54 +13,45 @@ function irParaHistoria(){
 
 
 
-// =======================
-// MÚSICA MP3
-// =======================
 
 function tocarMusica(){
 
-    const musica =
-    document.getElementById("musica");
+let musica =
+document.getElementById("musica");
 
 
-    musica.play();
+musica.play();
 
 }
 
 
 
 
-
-
-// =======================
-// CARTA SECRETA
-// =======================
 
 
 function abrirCarta(){
 
 
-    let envelope =
-    document.querySelector(".envelope");
+let envelope =
+document.querySelector(".envelope");
 
 
-    let carta =
-    document.getElementById("carta");
-
-
-
-    envelope.classList.add("aberto");
+let carta =
+document.getElementById("carta");
 
 
 
-    setTimeout(()=>{
+envelope.classList.add("saindo");
 
 
-        envelope.classList.add("sumir");
+
+setTimeout(()=>{
 
 
-    },3500);
+carta.classList.add("mostrar");
 
+
+},900);
 
 
 }
@@ -76,15 +63,8 @@ function abrirCarta(){
 
 
 
-
-// =======================
-// DATAS
-// =======================
-
-
-const primeiroBeijo =
+const beijo =
 new Date("2024-10-11T00:00:00");
-
 
 
 const inicio =
@@ -94,323 +74,108 @@ new Date("2024-12-26T00:00:00");
 
 
 
+function calcular(data){
 
 
-function calcularTempo(data){
+let agora = new Date();
 
 
-    let agora =
-    new Date();
-
-
-
-    let segundos =
-    Math.floor(
-        (agora - data) / 1000
-    );
+let total =
+Math.floor((agora-data)/1000);
 
 
 
-    let minutos =
-    Math.floor(segundos / 60);
+let minutos =
+Math.floor(total/60);
+
+
+let horas =
+Math.floor(minutos/60);
+
+
+let dias =
+Math.floor(horas/24);
 
 
 
-    let horas =
-    Math.floor(minutos / 60);
+let anos =
+Math.floor(dias/365);
 
 
 
-    let dias =
-    Math.floor(horas / 24);
+dias%=365;
+
+
+let meses =
+Math.floor(dias/30);
 
 
 
-
-    let anos =
-    Math.floor(dias / 365);
+dias%=30;
 
 
 
-    dias =
-    dias % 365;
+return {
 
+anos,
 
+meses,
 
-    let meses =
-    Math.floor(dias / 30);
+dias,
 
+horas:horas%24,
 
+minutos:minutos%60,
 
-    dias =
-    dias % 30;
+segundos:total%60
 
-
-
-
-
-
-    return {
-
-
-        anos:anos,
-
-
-        meses:meses,
-
-
-        dias:dias,
-
-
-        horas:horas % 24,
-
-
-        minutos:minutos % 60,
-
-
-        segundos:segundos % 60
-
-
-
-    };
-
+};
 
 }
 
 
 
 
-
-
-
-
-
-// =======================
-// ATUALIZAR CONTADORES
-// =======================
 
 
 function atualizar(){
 
 
-
-    // primeiro beijo
-
-    let beijo =
-    calcularTempo(primeiroBeijo);
+let b =
+calcular(beijo);
 
 
+anos.innerHTML=b.anos;
 
-    document
-    .getElementById("anos")
-    .innerHTML =
-    beijo.anos;
+meses.innerHTML=b.meses;
 
-
-
-    document
-    .getElementById("meses")
-    .innerHTML =
-    beijo.meses;
-
-
-
-    document
-    .getElementById("dias")
-    .innerHTML =
-    beijo.dias;
+dias.innerHTML=b.dias;
 
 
 
 
 
+let t =
+calcular(inicio);
 
 
 
+a.innerHTML=t.anos;
 
-    // tempo juntos
+m.innerHTML=t.meses;
 
+d.innerHTML=t.dias;
 
-    let tempo =
-    calcularTempo(inicio);
+h.innerHTML=t.horas;
 
+min.innerHTML=t.minutos;
 
-
-    document
-    .getElementById("a")
-    .innerHTML =
-    tempo.anos;
-
-
-
-    document
-    .getElementById("m")
-    .innerHTML =
-    tempo.meses;
-
-
-
-    document
-    .getElementById("d")
-    .innerHTML =
-    tempo.dias;
-
-
-
-    document
-    .getElementById("h")
-    .innerHTML =
-    tempo.horas;
-
-
-
-    document
-    .getElementById("min")
-    .innerHTML =
-    tempo.minutos;
-
-
-
-    document
-    .getElementById("s")
-    .innerHTML =
-    tempo.segundos;
-
+s.innerHTML=t.segundos;
 
 
 }
 
 
-
-
-
-setInterval(
-    atualizar,
-    1000
-);
-
-
+setInterval(atualizar,1000);
 
 atualizar();
-
-
-
-
-
-
-
-
-
-// =======================
-// EFEITO NAS FOTOS
-// =======================
-
-
-const cards =
-document.querySelectorAll(".card");
-
-
-
-cards.forEach(card=>{
-
-
-    card.addEventListener(
-        "touchstart",
-        ()=>{
-
-
-            card.style.transform =
-            "scale(.95)";
-
-
-        }
-    );
-
-
-
-
-
-    card.addEventListener(
-        "touchend",
-        ()=>{
-
-
-            card.style.transform =
-            "scale(1)";
-
-
-        }
-    );
-
-
-});
-
-
-
-
-
-
-
-
-
-// =======================
-// BRILHO AO TOCAR
-// =======================
-
-
-document.addEventListener(
-"touchstart",
-(e)=>{
-
-
-    let brilho =
-    document.createElement("div");
-
-
-
-    brilho.innerHTML="✨";
-
-
-
-    brilho.style.position="fixed";
-
-
-
-    brilho.style.left =
-    e.touches[0].clientX+"px";
-
-
-
-    brilho.style.top =
-    e.touches[0].clientY+"px";
-
-
-
-    brilho.style.zIndex="9999";
-
-
-
-    brilho.style.fontSize="25px";
-
-
-
-    brilho.style.pointerEvents="none";
-
-
-
-    document.body.appendChild(brilho);
-
-
-
-
-    setTimeout(()=>{
-
-
-        brilho.remove();
-
-
-    },700);
-
-
-
-});
