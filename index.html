@@ -2,10 +2,12 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nosso Cantinho ❤️</title>
+<title>Para Laura 💙</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -15,78 +17,490 @@
 <body>
 
 
-<section class="inicio">
 
-<h1>Para você, meu amor ❤️</h1>
+<div class="mar">
 
-<p>
-Eu fiz esse cantinho para lembrar o quanto você é especial para mim.
-</p>
+<div class="animal peixe">🐠</div>
 
-</section>
+<div class="animal peixe2">🐟</div>
 
+<div class="animal tartaruga">🐢</div>
 
+<div class="animal baleia">🐋</div>
 
-<section>
-
-<h2>Nossa história ✨</h2>
-
-<p>
-Desde que você chegou, meus dias ficaram mais felizes.
-Obrigado por cada sorriso, cada conversa e cada momento juntos.
-</p>
-
-</section>
-
-
-
-<section>
-
-<h2>Nossos momentos 📸</h2>
-
-<div class="galeria">
-
-<img src="fotos/foto1.jpg">
-<img src="fotos/foto2.jpg">
-<img src="fotos/foto3.jpg">
+<div class="animal polvo">🐙</div>
 
 </div>
 
+
+
+
+
+
+
+<section class="inicio">
+
+
+<h1>Laura 💙</h1>
+
+
+<p>
+Arthur preparou um presente especial para você...
+</p>
+
+
+<p>
+Um lugar onde guardei um pedacinho da nossa história.
+</p>
+
+
+<button onclick="irParaHistoria()">
+
+Abrir meu presente 🌊
+
+</button>
+
+
 </section>
+
+
+
+
+
+
+
+
+<section id="historia">
+
+
+
+<img 
+class="foto-principal"
+src="fotos/inicio.jpg"
+alt="Nossa foto">
+
+
+
+<h1>Meu Amor 💙</h1>
+
+
+
+<p>
+
+
+Desde que você chegou na minha vida,
+meus dias ficaram mais felizes.
+
+Nosso amor é como o mar:
+profundo, infinito e cheio de momentos
+que eu nunca vou esquecer.
+
+Obrigado por cada conversa,
+cada sorriso e cada memória.
+
+Você é muito especial para mim.
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
 
 
 
 <section>
 
-<h2>Uma promessa 💌</h2>
+
+<h2>🎵 Música que me lembra você</h2>
+
+
+
+<div class="player-box">
+
+
 
 <p>
-Quero continuar criando memórias com você,
-rindo, viajando e vivendo muitos capítulos ao seu lado.
+
+Uma música escolhida especialmente para você 💙
+
 </p>
 
+
+
+<button onclick="tocarMusica()">
+
+Tocar nossa música 🎶
+
+</button>
+
+
+
+<audio id="musica">
+
+<source src="musica.mp3" type="audio/mpeg">
+
+Seu navegador não suporta áudio.
+
+</audio>
+
+
+
+</div>
+
+
+
 </section>
+
+
+
+
+
+
 
 
 
 <section>
 
-<h2>Te amo ❤️</h2>
 
-<p>
-Feliz Dia dos Namorados.
-Você é uma das melhores partes da minha vida.
+<h2>Nosso primeiro beijo 💙</h2>
+
+
+<p class="data">
+
+11 • 10 • 2024
+
 </p>
 
+
+
+
+<div class="contador-beijo">
+
+
+<div>
+
+<span id="anos">0</span>
+
+Anos
+
+</div>
+
+
+
+<div>
+
+<span id="meses">0</span>
+
+Meses
+
+</div>
+
+
+
+<div>
+
+<span id="dias">0</span>
+
+Dias
+
+</div>
+
+
+</div>
+
+
+
 </section>
+
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>Nossos momentos 🌊</h2>
+
+
+
+
+<div class="galeria">
+
+
+
+
+
+<div class="card">
+
+
+<img src="fotos/foto1.jpg">
+
+
+<h3>Nosso começo ❤️</h3>
+
+
+<p>
+
+Nossa primeira foto depois do beijo na orla.
+Um momento simples que virou inesquecível.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="fotos/foto2.jpg">
+
+
+<h3>Nosso pôr do sol 🌅</h3>
+
+
+<p>
+
+Nós dois no alto do morro,
+com o céu guardando aquele momento.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="fotos/foto3.jpg">
+
+
+<h3>Nosso passeio 🚤</h3>
+
+
+<p>
+
+Nosso passeio de barco pelo Recife,
+criando mais uma memória nossa.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section>
+
+
+
+<h2>Compartilhando momentos há 💙</h2>
+
+
+
+
+<div class="tempo">
+
+
+
+<div>
+
+<span id="a">0</span>
+
+Anos
+
+</div>
+
+
+
+<div>
+
+<span id="m">0</span>
+
+Meses
+
+</div>
+
+
+
+<div>
+
+<span id="d">0</span>
+
+Dias
+
+</div>
+
+
+
+<div>
+
+<span id="h">0</span>
+
+Horas
+
+</div>
+
+
+
+<div>
+
+<span id="min">0</span>
+
+Min
+
+</div>
+
+
+
+<div>
+
+<span id="s">0</span>
+
+Seg
+
+</div>
+
+
+
+</div>
+
+
+
+
+<p>
+
+Desde 26/12/2024 ❤️
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="carta">
+
+
+<h2>Uma última coisa... 💌</h2>
+
+
+
+<div class="envelope" onclick="abrirCarta()">
+
+
+
+<div class="tampa"></div>
+
+
+
+
+<div class="papel" id="carta">
+
+
+<h3>Para Laura ❤️</h3>
+
+
+
+<p>
+
+
+Eu fiz esse lugar porque nossa história
+merece ser guardada.
+
+Obrigado por todos os momentos,
+por todos os sorrisos e por estar comigo.
+
+Que nosso amor continue navegando
+por muitos lugares.
+
+Você é meu lugar favorito.
+
+Eu te amo.
+
+Ass: Arthur ❤️
+
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<p class="clique">
+
+Clique no envelope
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
 
 
 <script src="script.js"></script>
 
-<audio autoplay loop>
-<source src="musica.mp3">
-</audio>
 
 </body>
+
 
 </html>
