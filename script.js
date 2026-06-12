@@ -13,6 +13,10 @@ document.body.classList.add("aberto");
 
 
 
+efeitoCoracao();
+
+
+
 setTimeout(()=>{
 
 
@@ -38,12 +42,86 @@ behavior:"smooth"
 
 
 
+
+
+// ==========================
+// TEXTO DIGITANDO
+// ==========================
+
+
+
+let texto = 
+"Preparei um presente especial para você...";
+
+
+
+let posicao = 0;
+
+
+
+function escreverTexto(){
+
+
+let elemento =
+document.getElementById("digitando");
+
+
+
+if(!elemento) return;
+
+
+
+if(posicao < texto.length){
+
+
+
+elemento.innerHTML += 
+texto.charAt(posicao);
+
+
+
+posicao++;
+
+
+
+setTimeout(
+escreverTexto,
+70
+);
+
+
+
+}
+
+
+
+}
+
+
+
+window.addEventListener(
+"load",
+escreverTexto
+);
+
+
+
+
+
+
+
+
+
+
+
 // ==========================
 // MÚSICA
 // ==========================
 
 
+
 function tocarMusica(){
+
 
 
 let musica =
@@ -51,8 +129,23 @@ document.getElementById("musica");
 
 
 
+if(musica.paused){
+
+
 musica.play();
 
+
+}else{
+
+
+musica.pause();
+
+
+}
+
+
+
+efeitoCoracao();
 
 
 }
@@ -70,7 +163,9 @@ musica.play();
 // ==========================
 
 
+
 function abrirCarta(){
+
 
 
 let envelope =
@@ -80,7 +175,6 @@ document.querySelector(".envelope");
 
 let carta =
 document.getElementById("carta");
-
 
 
 
@@ -94,39 +188,11 @@ setTimeout(()=>{
 carta.classList.add("mostrar");
 
 
+efeitoCoracao();
+
+
+
 },900);
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-// ==========================
-// CONCHA SECRETA
-// ==========================
-
-
-
-function mostrarSegredo(){
-
-
-let mensagem =
-document.getElementById("mensagemSecreta");
-
-
-
-mensagem.innerHTML =
-
-
-"🌊 O maior tesouro que encontrei no mar foi ter você comigo. 💙";
 
 
 
@@ -149,15 +215,189 @@ mensagem.innerHTML =
 function segundaCarta(){
 
 
+
 let texto =
 document.getElementById("segundaMensagem");
+
+
+
+if(!texto) return;
 
 
 
 texto.innerHTML =
 
 
-"✨ Spoiler: ainda quero viver muitos capítulos dessa história ao seu lado. 🌙💙";
+
+"✨ Ainda quero viver muitos capítulos dessa história ao seu lado. 🌊💙";
+
+
+
+efeitoCoracao();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ==========================
+// CONCHA
+// ==========================
+
+
+
+function mostrarSegredo(){
+
+
+
+let concha =
+document.querySelector(".concha");
+
+
+
+concha.classList.add("abrir");
+
+
+
+document
+.getElementById("mensagemSecreta")
+.innerHTML =
+
+
+
+"🌊 O maior tesouro que encontrei no mar foi ter você comigo. 💙";
+
+
+
+efeitoCoracao();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ==========================
+// CORAÇÕES
+// ==========================
+
+
+
+function efeitoCoracao(){
+
+
+
+let coracao =
+document.createElement("div");
+
+
+
+coracao.className =
+"coracao";
+
+
+
+coracao.innerHTML =
+"❤️";
+
+
+
+coracao.style.left =
+Math.random()*90 + "%";
+
+
+
+coracao.style.bottom =
+"20px";
+
+
+
+document.body.appendChild(coracao);
+
+
+
+setTimeout(()=>{
+
+
+coracao.remove();
+
+
+
+},2000);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ==========================
+// FOTO FULLSCREEN
+// ==========================
+
+
+
+function abrirFoto(imagem){
+
+
+
+let tela =
+document.getElementById("visualFoto");
+
+
+
+let foto =
+document.getElementById("fotoGrande");
+
+
+
+foto.src = imagem;
+
+
+
+tela.style.display =
+"flex";
+
+
+
+efeitoCoracao();
+
+
+
+}
+
+
+
+
+
+
+
+function fecharFoto(){
+
+
+
+document
+.getElementById("visualFoto")
+.style.display="none";
 
 
 
@@ -178,14 +418,18 @@ texto.innerHTML =
 
 
 const primeiroBeijo =
-new Date("2024-10-11T00:00:00");
+
+new Date(
+"2024-10-11T00:00:00"
+);
 
 
 
 const juntos =
-new Date("2024-12-26T00:00:00");
 
-
+new Date(
+"2024-12-26T00:00:00"
+);
 
 
 
@@ -205,7 +449,7 @@ new Date();
 let segundos =
 
 Math.floor(
-(agora - data) / 1000
+(agora-data)/1000
 );
 
 
@@ -213,7 +457,7 @@ Math.floor(
 let minutos =
 
 Math.floor(
-segundos / 60
+segundos/60
 );
 
 
@@ -221,7 +465,7 @@ segundos / 60
 let horas =
 
 Math.floor(
-minutos / 60
+minutos/60
 );
 
 
@@ -229,37 +473,38 @@ minutos / 60
 let dias =
 
 Math.floor(
-horas / 24
+horas/24
 );
-
 
 
 
 let anos =
 
 Math.floor(
-dias / 365
+dias/365
 );
 
 
 
-dias %= 365;
+dias =
+dias % 365;
 
 
 
 let meses =
 
 Math.floor(
-dias / 30
+dias/30
 );
 
 
 
-dias %= 30;
+dias =
+dias % 30;
 
 
 
-return{
+return {
 
 
 anos,
@@ -303,19 +548,28 @@ calcularTempo(primeiroBeijo);
 
 
 
+if(document.getElementById("anos")){
+
 
 document.getElementById("anos")
-.innerHTML = beijo.anos;
+.innerHTML =
+beijo.anos;
 
 
 
 document.getElementById("meses")
-.innerHTML = beijo.meses;
+.innerHTML =
+beijo.meses;
 
 
 
 document.getElementById("dias")
-.innerHTML = beijo.dias;
+.innerHTML =
+beijo.dias;
+
+
+
+}
 
 
 
@@ -329,37 +583,83 @@ calcularTempo(juntos);
 
 
 
+
+if(document.getElementById("a")){
+
+
 document.getElementById("a")
-.innerHTML = tempo.anos;
+.innerHTML =
+tempo.anos;
 
 
 
 document.getElementById("m")
-.innerHTML = tempo.meses;
+.innerHTML =
+tempo.meses;
 
 
 
 document.getElementById("d")
-.innerHTML = tempo.dias;
+.innerHTML =
+tempo.dias;
 
 
 
 document.getElementById("h")
-.innerHTML = tempo.horas;
+.innerHTML =
+tempo.horas;
 
 
 
 document.getElementById("min")
-.innerHTML = tempo.minutos;
+.innerHTML =
+tempo.minutos;
 
 
 
 document.getElementById("s")
-.innerHTML = tempo.segundos;
+.innerHTML =
+tempo.segundos;
 
 
 
 }
+
+
+
+
+
+
+
+
+if(document.getElementById("contadorFinal")){
+
+
+document.getElementById("contadorFinal")
+.innerHTML =
+
+
+"Já vivemos: <br>" +
+
+tempo.dias +
+" dias ❤️<br>" +
+
+tempo.horas +
+" horas<br>" +
+
+tempo.minutos +
+" minutos<br>" +
+
+tempo.segundos +
+" segundos";
+
+
+}
+
+
+
+}
+
 
 
 
@@ -383,9 +683,11 @@ atualizarContadores();
 
 
 
+
 // ==========================
-// EFEITO PARALLAX
+// PARALLAX
 // ==========================
+
 
 
 window.addEventListener(
@@ -408,11 +710,14 @@ document.querySelector(".estrelas");
 
 
 
+
+
 if(ondas){
+
 
 ondas.style.transform =
 
-`translateY(${-scroll * 0.15}px)`;
+`translateY(${-scroll*0.15}px)`;
 
 }
 
@@ -420,12 +725,15 @@ ondas.style.transform =
 
 if(estrelas){
 
+
 estrelas.style.transform =
 
-`translateY(${scroll * 0.08}px)`;
+`translateY(${scroll*0.08}px)`;
 
 }
 
 
 
-});
+}
+
+);
