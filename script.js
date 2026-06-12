@@ -1,8 +1,10 @@
 // ==========================
-// BOTÃO ABRIR PRESENTE
+// ABRIR PRESENTE
 // ==========================
 
+
 function irParaHistoria(){
+
 
 document
 .getElementById("historia")
@@ -22,9 +24,11 @@ criarCoracao();
 
 
 
+
 // ==========================
-// MÚSICA PLAY / PAUSE
+// MUSICA PLAY / PAUSE
 // ==========================
+
 
 function tocarMusica(){
 
@@ -38,7 +42,6 @@ if(musica.paused){
 
 
 musica.play();
-
 
 
 }else{
@@ -73,6 +76,7 @@ let carta =
 document.getElementById("carta");
 
 
+
 carta.classList.add("mostrar");
 
 
@@ -89,8 +93,9 @@ criarCoracao();
 
 
 // ==========================
-// CONTADOR
+// CONTADORES
 // ==========================
+
 
 
 const beijo =
@@ -104,7 +109,9 @@ new Date("2024-12-26T00:00:00");
 
 
 
-function calcular(data){
+
+
+function calcularTempo(data){
 
 
 let agora =
@@ -112,58 +119,52 @@ new Date();
 
 
 
-let segundos =
+let total =
 Math.floor(
 (agora - data) / 1000
 );
 
 
 
+let segundos =
+total % 60;
+
+
+
 let minutos =
-Math.floor(
-segundos / 60
-);
+Math.floor(total / 60) % 60;
 
 
 
 let horas =
-Math.floor(
-minutos / 60
-);
+Math.floor(total / 3600) % 24;
 
 
 
-let dias =
-Math.floor(
-horas / 24
-);
+let diasTotal =
+Math.floor(total / 86400);
 
 
 
 let anos =
-Math.floor(
-dias / 365
-);
-
-
-
-dias = dias % 365;
+Math.floor(diasTotal / 365);
 
 
 
 let meses =
 Math.floor(
-dias / 30
+(diasTotal % 365) / 30
 );
 
 
 
-dias = dias % 30;
+let dias =
+(diasTotal % 365) % 30;
 
 
 
 
-return {
+return{
 
 
 anos,
@@ -172,16 +173,11 @@ meses,
 
 dias,
 
-horas:
-horas % 24,
+horas,
 
+minutos,
 
-minutos:
-minutos % 60,
-
-
-segundos:
-segundos % 60
+segundos
 
 
 };
@@ -196,11 +192,12 @@ segundos % 60
 
 
 
-function atualizarContador(){
+function atualizar(){
+
 
 
 let b =
-calcular(beijo);
+calcularTempo(beijo);
 
 
 
@@ -219,6 +216,30 @@ document.getElementById("dias").innerHTML =
 b.dias;
 
 
+
+}
+
+
+
+
+// caso queira adicionar esses IDs depois
+
+
+if(document.getElementById("horasBeijo")){
+
+
+document.getElementById("horasBeijo").innerHTML =
+b.horas;
+
+
+document.getElementById("minutosBeijo").innerHTML =
+b.minutos;
+
+
+document.getElementById("segundosBeijo").innerHTML =
+b.segundos;
+
+
 }
 
 
@@ -226,10 +247,9 @@ b.dias;
 
 
 
+
 let t =
-calcular(juntos);
-
-
+calcularTempo(juntos);
 
 
 
@@ -268,13 +288,14 @@ t.segundos;
 
 
 
+
 setInterval(
-atualizarContador,
+atualizar,
 1000
 );
 
 
-atualizarContador();
+atualizar();
 
 
 
@@ -296,6 +317,7 @@ let coracao =
 document.createElement("div");
 
 
+
 coracao.className="coracao";
 
 
@@ -308,11 +330,8 @@ Math.random()*90+"%";
 
 
 
-coracao.style.bottom="20px";
-
-
-
 document.body.appendChild(coracao);
+
 
 
 
@@ -325,7 +344,6 @@ coracao.remove();
 },2000);
 
 
-
 }
 
 
@@ -335,81 +353,10 @@ coracao.remove();
 
 
 
-
-
 // ==========================
-// CHUVA DE ESTRELAS
+// FOTO AMPLIADA
 // ==========================
 
-
-function chuvaEstrelas(){
-
-
-for(let i=0;i<35;i++){
-
-
-
-let estrela =
-document.createElement("div");
-
-
-
-estrela.className="estrela";
-
-
-
-estrela.style.left =
-Math.random()*100+"vw";
-
-
-
-estrela.style.animationDelay =
-Math.random()*2+"s";
-
-
-
-document.body.appendChild(estrela);
-
-
-
-setTimeout(()=>{
-
-
-estrela.remove();
-
-
-},4000);
-
-
-
-}
-
-
-
-}
-
-
-
-
-
-// a cada 15 segundos
-
-setInterval(
-chuvaEstrelas,
-15000
-);
-
-
-
-
-
-
-
-
-
-// ==========================
-// FOTO AO CLICAR
-// ==========================
 
 
 document
@@ -417,9 +364,7 @@ document
 .forEach(img=>{
 
 
-img.addEventListener(
-"click",
-()=>{
+img.onclick=function(){
 
 
 let tela =
@@ -432,18 +377,14 @@ document.getElementById("fotoGrande");
 
 
 foto.src =
-img.src;
+this.src;
 
 
 
 tela.style.display="flex";
 
 
-
 }
-
-
-);
 
 
 
@@ -453,17 +394,13 @@ tela.style.display="flex";
 
 
 
-document
-.getElementById("visualFoto")
-.addEventListener(
-"click",
-()=>{
-
 
 document
 .getElementById("visualFoto")
-.style.display="none";
+.onclick=function(){
+
+
+this.style.display="none";
 
 
 }
-);
