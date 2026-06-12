@@ -7,15 +7,10 @@ console.log("script carregou");
 function abrirPresente(){
 
 
-document.body.classList.remove("bloqueado");
-
-
 document.body.classList.add("aberto");
 
 
-
 efeitoCoracao();
-
 
 
 setTimeout(()=>{
@@ -30,7 +25,7 @@ behavior:"smooth"
 });
 
 
-},1200);
+},800);
 
 
 
