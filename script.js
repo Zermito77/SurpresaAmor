@@ -1,63 +1,8 @@
-// =========================
-// TEXTO INICIAL DIGITANDO
-// =========================
-
-
-let mensagem =
-"Preparei um presente especial para você... 💙";
-
-
-let i = 0;
-
-
-function escrever(){
-
-
-let texto =
-document.getElementById("textoInicial");
-
-
-
-if(!texto) return;
-
-
-
-if(i < mensagem.length){
-
-
-texto.innerHTML += mensagem.charAt(i);
-
-
-i++;
-
-
-setTimeout(escrever,60);
-
-
-}
-
-
-}
-
-
-
-window.onload = escrever;
-
-
-
-
-
-
-
-
-
-// =========================
+// ==========================
 // BOTÃO ABRIR PRESENTE
-// =========================
+// ==========================
 
-
-function abrirHistoria(){
-
+function irParaHistoria(){
 
 document
 .getElementById("historia")
@@ -70,7 +15,6 @@ behavior:"smooth"
 
 criarCoracao();
 
-
 }
 
 
@@ -78,14 +22,9 @@ criarCoracao();
 
 
 
-
-
-
-// =========================
-// MÚSICA
-// =========================
-
-
+// ==========================
+// MÚSICA PLAY / PAUSE
+// ==========================
 
 function tocarMusica(){
 
@@ -101,6 +40,7 @@ if(musica.paused){
 musica.play();
 
 
+
 }else{
 
 
@@ -110,9 +50,141 @@ musica.pause();
 }
 
 
+criarCoracao();
+
+
+}
+
+
+
+
+
+
+
+// ==========================
+// CARTA
+// ==========================
+
+
+function abrirCarta(){
+
+
+let carta =
+document.getElementById("carta");
+
+
+carta.classList.add("mostrar");
+
+
 
 criarCoracao();
 
+
+}
+
+
+
+
+
+
+
+// ==========================
+// CONTADOR
+// ==========================
+
+
+const beijo =
+new Date("2024-10-11T00:00:00");
+
+
+
+const juntos =
+new Date("2024-12-26T00:00:00");
+
+
+
+
+function calcular(data){
+
+
+let agora =
+new Date();
+
+
+
+let segundos =
+Math.floor(
+(agora - data) / 1000
+);
+
+
+
+let minutos =
+Math.floor(
+segundos / 60
+);
+
+
+
+let horas =
+Math.floor(
+minutos / 60
+);
+
+
+
+let dias =
+Math.floor(
+horas / 24
+);
+
+
+
+let anos =
+Math.floor(
+dias / 365
+);
+
+
+
+dias = dias % 365;
+
+
+
+let meses =
+Math.floor(
+dias / 30
+);
+
+
+
+dias = dias % 30;
+
+
+
+
+return {
+
+
+anos,
+
+meses,
+
+dias,
+
+horas:
+horas % 24,
+
+
+minutos:
+minutos % 60,
+
+
+segundos:
+segundos % 60
+
+
+};
 
 
 }
@@ -124,10 +196,97 @@ criarCoracao();
 
 
 
+function atualizarContador(){
 
-// =========================
+
+let b =
+calcular(beijo);
+
+
+
+if(document.getElementById("anos")){
+
+
+document.getElementById("anos").innerHTML =
+b.anos;
+
+
+document.getElementById("meses").innerHTML =
+b.meses;
+
+
+document.getElementById("dias").innerHTML =
+b.dias;
+
+
+}
+
+
+
+
+
+
+let t =
+calcular(juntos);
+
+
+
+
+
+if(document.getElementById("a")){
+
+
+document.getElementById("a").innerHTML =
+t.anos;
+
+
+document.getElementById("m").innerHTML =
+t.meses;
+
+
+document.getElementById("d").innerHTML =
+t.dias;
+
+
+document.getElementById("h").innerHTML =
+t.horas;
+
+
+document.getElementById("min").innerHTML =
+t.minutos;
+
+
+document.getElementById("s").innerHTML =
+t.segundos;
+
+
+}
+
+
+
+}
+
+
+
+setInterval(
+atualizarContador,
+1000
+);
+
+
+atualizarContador();
+
+
+
+
+
+
+
+
+
+// ==========================
 // CORAÇÕES
-// =========================
+// ==========================
 
 
 function criarCoracao(){
@@ -137,27 +296,19 @@ let coracao =
 document.createElement("div");
 
 
+coracao.className="coracao";
+
 
 coracao.innerHTML="❤️";
 
 
-coracao.style.position="fixed";
 
 coracao.style.left =
 Math.random()*90+"%";
 
 
-coracao.style.bottom="0";
 
-
-coracao.style.fontSize="30px";
-
-
-coracao.style.zIndex="200";
-
-
-coracao.style.animation=
-"subir 2s linear";
+coracao.style.bottom="20px";
 
 
 
@@ -184,27 +335,104 @@ coracao.remove();
 
 
 
-// =========================
-// FOTO FULLSCREEN
-// =========================
+
+
+// ==========================
+// CHUVA DE ESTRELAS
+// ==========================
+
+
+function chuvaEstrelas(){
+
+
+for(let i=0;i<35;i++){
 
 
 
-function abrirFoto(src){
+let estrela =
+document.createElement("div");
 
+
+
+estrela.className="estrela";
+
+
+
+estrela.style.left =
+Math.random()*100+"vw";
+
+
+
+estrela.style.animationDelay =
+Math.random()*2+"s";
+
+
+
+document.body.appendChild(estrela);
+
+
+
+setTimeout(()=>{
+
+
+estrela.remove();
+
+
+},4000);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+// a cada 15 segundos
+
+setInterval(
+chuvaEstrelas,
+15000
+);
+
+
+
+
+
+
+
+
+
+// ==========================
+// FOTO AO CLICAR
+// ==========================
+
+
+document
+.querySelectorAll(".card img")
+.forEach(img=>{
+
+
+img.addEventListener(
+"click",
+()=>{
 
 
 let tela =
+document.getElementById("visualFoto");
+
+
+let foto =
 document.getElementById("fotoGrande");
 
 
 
-let imagem =
-document.getElementById("imagemAberta");
-
-
-
-imagem.src=src;
+foto.src =
+img.src;
 
 
 
@@ -215,280 +443,27 @@ tela.style.display="flex";
 }
 
 
+);
 
-function fecharFoto(){
+
+
+});
+
+
+
 
 
 document
-.getElementById("fotoGrande")
+.getElementById("visualFoto")
+.addEventListener(
+"click",
+()=>{
+
+
+document
+.getElementById("visualFoto")
 .style.display="none";
 
 
 }
-
-
-
-
-
-
-
-
-
-
-// =========================
-// CARTA
-// =========================
-
-
-
-function abrirCarta(){
-
-
-let carta =
-document.getElementById("carta");
-
-
-
-carta.style.transform=
-"scale(1.05)";
-
-
-
-carta.style.transition=
-".5s";
-
-
-
-criarCoracao();
-
-
-}
-
-
-
-
-
-
-
-
-
-// =========================
-// CONTADORES
-// =========================
-
-
-
-let beijo =
-new Date("2024-10-11T00:00:00");
-
-
-
-let juntos =
-new Date("2024-12-26T00:00:00");
-
-
-
-
-
-function tempo(data){
-
-
-let agora =
-new Date();
-
-
-
-let segundos =
-Math.floor(
-(agora-data)/1000
 );
-
-
-
-let minutos =
-Math.floor(
-segundos/60
-);
-
-
-
-let horas =
-Math.floor(
-minutos/60
-);
-
-
-
-let dias =
-Math.floor(
-horas/24
-);
-
-
-
-let anos =
-Math.floor(
-dias/365
-);
-
-
-
-dias%=365;
-
-
-
-let meses =
-Math.floor(
-dias/30
-);
-
-
-
-dias%=30;
-
-
-
-return{
-
-
-anos,
-
-meses,
-
-dias,
-
-horas:
-horas%24,
-
-
-minutos:
-minutos%60,
-
-
-segundos:
-segundos%60
-
-
-};
-
-
-}
-
-
-
-
-
-
-
-
-function atualizar(){
-
-
-
-let b =
-tempo(beijo);
-
-
-
-if(document.getElementById("anos")){
-
-
-anos.innerHTML=b.anos;
-
-meses.innerHTML=b.meses;
-
-dias.innerHTML=b.dias;
-
-
-}
-
-
-
-
-
-let t =
-tempo(juntos);
-
-
-
-
-if(document.getElementById("a")){
-
-
-a.innerHTML=t.anos;
-
-m.innerHTML=t.meses;
-
-d.innerHTML=t.dias;
-
-h.innerHTML=t.horas;
-
-min.innerHTML=t.minutos;
-
-s.innerHTML=t.segundos;
-
-
-}
-
-
-
-}
-
-
-
-setInterval(atualizar,1000);
-
-
-atualizar();
-
-
-
-
-
-
-
-
-
-// =========================
-// ANIMAÇÃO DOS CORAÇÕES
-// =========================
-
-
-let estilo =
-document.createElement("style");
-
-
-
-estilo.innerHTML=`
-
-
-@keyframes subir{
-
-
-0%{
-
-transform:translateY(0);
-
-opacity:1;
-
-}
-
-
-100%{
-
-transform:
-translateY(-300px);
-
-opacity:0;
-
-}
-
-
-}
-
-
-`;
-
-
-
-document.head.appendChild(estilo);
