@@ -517,25 +517,17 @@ CONTEUDO
 
 #conteudo{
 
-
 position:relative;
 
+z-index:10;
 
-z-index:5;
+opacity:1;
 
+visibility:visible;
 
-opacity:0;
-
-
-visibility:hidden;
-
-
-transform:translateY(50px);
-
-
+transform:translateY(0);
 
 transition:1.5s;
-
 
 }
 
