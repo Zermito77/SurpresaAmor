@@ -16,10 +16,11 @@ background:
 
 linear-gradient(
 180deg,
-#020015,
-#071b46,
+#001b35,
+#003b66,
 #00111f
 );
+
 
 color:white;
 
@@ -29,6 +30,7 @@ font-family:
 Arial,
 sans-serif;
 
+
 overflow-x:hidden;
 
 }
@@ -36,8 +38,8 @@ overflow-x:hidden;
 
 
 
+/* FUNDO DO MAR */
 
-/* FUNDO */
 
 body::before{
 
@@ -47,19 +49,19 @@ position:fixed;
 
 inset:0;
 
+
 background:
 
-radial-gradient(
-circle at top,
-#5429a8,
-transparent 35%
+linear-gradient(
+180deg,
+rgba(0,80,150,.4),
+transparent
 );
 
 
 z-index:-2;
 
 }
-
 
 
 
@@ -90,13 +92,16 @@ right:-120px;
 
 font-size:45px;
 
-opacity:.45;
+opacity:.35;
+
 
 animation:
 
 nadar 18s linear infinite;
 
+
 }
+
 
 
 
@@ -151,6 +156,9 @@ animation-delay:15s;
 
 
 
+
+
+
 @keyframes nadar{
 
 
@@ -177,61 +185,34 @@ transform:translateX(-120vw);
 
 
 
-/* ESTRELAS FIXAS */
-
-
-body:after{
-
-content:"";
-
-position:fixed;
-
-inset:0;
-
-
-background-image:
-
-radial-gradient(
-white 1px,
-transparent 1px
-);
-
-
-background-size:60px 60px;
-
-opacity:.25;
-
-z-index:-1;
-
-}
-
-
-
-
-
-
-
 
 
 section{
 
+
 min-height:100vh;
 
-padding:60px 25px;
+
+padding:45px 20px;
 
 
 display:flex;
 
+
 flex-direction:column;
 
+
 justify-content:center;
+
 
 align-items:center;
 
 
 text-align:center;
 
+
 position:relative;
+
 
 z-index:5;
 
@@ -242,36 +223,34 @@ z-index:5;
 
 h1{
 
-font-size:45px;
+font-size:40px;
 
-color:#9deaff;
-
-text-shadow:
-
-0 0 25px #00bfff;
+color:#aeeeff;
 
 }
+
 
 
 h2{
 
-font-size:30px;
+font-size:28px;
 
-color:#b8eaff;
+color:#bdefff;
 
-margin-bottom:25px;
+margin-bottom:20px;
 
 }
+
 
 
 
 p{
 
-max-width:700px;
+font-size:17px;
 
-font-size:18px;
+line-height:1.7;
 
-line-height:1.8;
+max-width:650px;
 
 }
 
@@ -279,70 +258,47 @@ line-height:1.8;
 
 
 
-
-
-/* BOTÕES */
-
-
 button{
 
 
-margin-top:25px;
+margin-top:20px;
 
-padding:
 
-15px 35px;
+padding:14px 30px;
 
 
 border:none;
 
-border-radius:50px;
+
+border-radius:30px;
+
 
 
 background:
 
 linear-gradient(
 90deg,
-#006eff,
-#9d35ff
+#0077ff,
+#00cfff
 );
+
 
 
 color:white;
 
 
-font-size:18px;
+font-size:17px;
 
 
 cursor:pointer;
 
 
-box-shadow:
-
-0 0 25px #008cff;
-
-
-transition:.3s;
-
-
-}
-
-
-button:hover{
-
-transform:scale(1.08);
-
 }
 
 
 
 
-
-
-
-
-
-/* FOTO INICIAL */
+/* FOTO */
 
 
 .foto-principal{
@@ -350,46 +306,10 @@ transform:scale(1.08);
 
 width:85%;
 
-max-width:400px;
+max-width:350px;
 
 
 border-radius:25px;
-
-
-box-shadow:
-
-0 0 40px black;
-
-
-}
-
-
-
-
-
-/* MUSICA */
-
-
-.player-box{
-
-
-background:
-
-rgba(255,255,255,.12);
-
-
-backdrop-filter:blur(12px);
-
-
-padding:30px;
-
-
-border-radius:25px;
-
-
-border:
-
-1px solid rgba(255,255,255,.2);
 
 }
 
@@ -400,27 +320,22 @@ border:
 
 
 
-
-
-/* DATA */
+/* DATAS */
 
 
 .data{
 
 
-font-size:32px;
+font-size:26px;
 
 font-weight:bold;
 
-letter-spacing:5px;
+
+letter-spacing:3px;
 
 
-color:#baf5ff;
+color:#d9fbff;
 
-
-text-shadow:
-
-0 0 20px #00d9ff;
 
 }
 
@@ -442,14 +357,14 @@ text-shadow:
 display:grid;
 
 
-grid-template-columns:
-repeat(3,1fr);
+grid-template-columns:repeat(3,1fr);
 
 
-gap:15px;
+gap:10px;
 
 
-margin-top:25px;
+margin-top:20px;
+
 
 }
 
@@ -464,18 +379,16 @@ background:
 rgba(255,255,255,.12);
 
 
-backdrop-filter:blur(10px);
+
+padding:15px;
 
 
-padding:20px;
+border-radius:18px;
 
-
-border-radius:20px;
-
-
-min-width:80px;
 
 }
+
+
 
 
 span{
@@ -483,11 +396,15 @@ span{
 
 display:block;
 
-font-size:32px;
+
+font-size:25px;
+
+
+color:#9feaff;
+
 
 font-weight:bold;
 
-color:#8deaff;
 
 }
 
@@ -508,39 +425,41 @@ color:#8deaff;
 display:flex;
 
 
-gap:20px;
-
-
-overflow-x:auto;
+gap:15px;
 
 
 width:100%;
 
 
-padding:20px;
+overflow-x:auto;
 
+
+padding:10px;
 
 }
+
 
 
 .card{
 
 
-min-width:80%;
+min-width:85%;
 
 
 background:
 
-rgba(255,255,255,.1);
+rgba(255,255,255,.12);
 
 
-border-radius:25px;
+
+padding:15px;
 
 
-padding:20px;
+border-radius:20px;
 
 
 }
+
 
 
 
@@ -550,10 +469,10 @@ padding:20px;
 width:100%;
 
 
-border-radius:20px;
-
+border-radius:15px;
 
 }
+
 
 
 
@@ -571,47 +490,87 @@ border-radius:20px;
 
 display:flex;
 
+
 justify-content:center;
+
 
 align-items:center;
 
+
 }
-
-
 
 
 
 .envelope{
 
 
-font-size:90px;
+width:120px;
+
+height:85px;
+
+
+background:#0b6fa4;
+
+
+position:relative;
 
 
 cursor:pointer;
 
 
+border-radius:8px;
+
+
 transition:.5s;
 
 
+box-shadow:
+
+0 0 30px #00bfff;
+
+
 }
+
+
+
+
+.envelope:before{
+
+
+content:"";
+
+
+position:absolute;
+
+
+top:0;
+
+
+left:0;
+
+
+border-left:60px solid transparent;
+
+border-right:60px solid transparent;
+
+
+border-top:45px solid #55d8ff;
+
+
+}
+
+
+
 
 
 .envelope:hover{
 
 
-transform:
-
-scale(1.15);
-
-
-filter:
-
-drop-shadow(
-0 0 25px #72eaff
-);
+transform:scale(1.1);
 
 
 }
+
 
 
 
@@ -621,36 +580,27 @@ drop-shadow(
 .papel{
 
 
-width:600px;
+width:90%;
 
-max-width:90%;
+max-width:420px;
 
 
 background:
 
-rgba(255,255,255,.13);
+rgba(255,255,255,.15);
 
 
-backdrop-filter:
-
-blur(15px);
-
-
-border:
-
-1px solid rgba(255,255,255,.25);
+backdrop-filter:blur(10px);
 
 
 
-padding:45px;
+padding:25px;
 
 
-border-radius:30px;
+border-radius:20px;
 
 
-box-shadow:
-
-0 0 50px rgba(0,150,255,.35);
+margin-top:25px;
 
 
 opacity:0;
@@ -659,18 +609,15 @@ opacity:0;
 visibility:hidden;
 
 
-transform:
-
-translateY(40px) scale(.9);
+transform:translateY(30px);
 
 
-transition:
 
-.8s ease;
+transition:.6s;
+
 
 
 }
-
 
 
 
@@ -683,12 +630,10 @@ opacity:1;
 visibility:visible;
 
 
-transform:
-
-translateY(0) scale(1);
-
+transform:translateY(0);
 
 }
+
 
 
 
@@ -698,82 +643,7 @@ translateY(0) scale(1);
 
 .clique{
 
-
-margin-top:20px;
-
-opacity:.8;
-
-}
-
-
-
-
-
-
-
-
-
-/* CHUVA ESTRELAS */
-
-
-.estrela{
-
-
-position:fixed;
-
-
-top:-20px;
-
-
-width:3px;
-
-
-height:3px;
-
-
-background:white;
-
-
-border-radius:50%;
-
-
-z-index:100;
-
-
-animation:
-
-cair 3s linear forwards;
-
-
-}
-
-
-
-@keyframes cair{
-
-
-0%{
-
-transform:
-translateY(-20px);
-
-opacity:1;
-
-}
-
-
-
-100%{
-
-
-transform:
-translateY(110vh);
-
-
-opacity:0;
-
-}
-
+margin-top:15px;
 
 }
 
@@ -793,6 +663,9 @@ opacity:0;
 
 position:fixed;
 
+font-size:25px;
+
+bottom:0;
 
 z-index:100;
 
@@ -800,6 +673,7 @@ z-index:100;
 animation:
 
 subir 2s linear forwards;
+
 
 }
 
@@ -810,8 +684,7 @@ subir 2s linear forwards;
 
 to{
 
-transform:
-translateY(-300px);
+transform:translateY(-250px);
 
 opacity:0;
 
@@ -819,7 +692,6 @@ opacity:0;
 
 
 }
-
 
 
 
@@ -845,7 +717,7 @@ inset:0;
 
 background:
 
-rgba(0,0,0,.9);
+rgba(0,0,0,.85);
 
 
 z-index:200;
@@ -860,16 +732,15 @@ align-items:center;
 }
 
 
+
 #visualFoto img{
 
 
 max-width:90%;
 
 
-max-height:90%;
+border-radius:20px;
 
-
-border-radius:25px;
 
 }
 
@@ -879,8 +750,6 @@ border-radius:25px;
 
 
 
-
-/* CELULAR */
 
 
 @media(max-width:600px){
@@ -889,7 +758,7 @@ border-radius:25px;
 
 h1{
 
-font-size:38px;
+font-size:34px;
 
 }
 
@@ -897,7 +766,7 @@ font-size:38px;
 
 h2{
 
-font-size:25px;
+font-size:23px;
 
 }
 
@@ -905,25 +774,36 @@ font-size:25px;
 
 .data{
 
-font-size:24px;
+font-size:21px;
 
 }
-
 
 
 .contador-beijo,
 .tempo{
 
-grid-template-columns:
-repeat(2,1fr);
+grid-template-columns:repeat(2,1fr);
 
 }
 
 
 
-.papel{
+.envelope{
 
-padding:25px;
+width:100px;
+
+height:70px;
+
+}
+
+
+.envelope:before{
+
+
+border-left-width:50px;
+
+border-right-width:50px;
+
 
 }
 
