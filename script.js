@@ -10,7 +10,8 @@ document.body.classList.remove("bloqueado");
 
 
 document.body.classList.add("aberto");
-
+  
+console.log("script carregou");
 
 
 efeitoCoracao();
