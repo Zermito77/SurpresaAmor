@@ -10,21 +10,24 @@ scroll-behavior:smooth;
 }
 
 
-
 body{
 
 background:
+
 linear-gradient(
 180deg,
-#03000d,
-#061b3a,
-#001525
+#020015,
+#071b46,
+#00111f
 );
-
 
 color:white;
 
-font-family:Arial, Helvetica, sans-serif;
+font-family:
+
+'Segoe UI',
+Arial,
+sans-serif;
 
 overflow-x:hidden;
 
@@ -34,20 +37,26 @@ overflow-x:hidden;
 
 
 
-/* =================
-FUNDO
-================= */
+/* FUNDO */
 
+body::before{
 
-.fundo{
+content:"";
 
 position:fixed;
 
 inset:0;
 
-z-index:-1;
+background:
 
-overflow:hidden;
+radial-gradient(
+circle at top,
+#5429a8,
+transparent 35%
+);
+
+
+z-index:-2;
 
 }
 
@@ -55,13 +64,129 @@ overflow:hidden;
 
 
 
-.estrelas{
+.mar{
 
-
-position:absolute;
+position:fixed;
 
 inset:0;
 
+overflow:hidden;
+
+pointer-events:none;
+
+z-index:1;
+
+}
+
+
+
+
+
+.animal{
+
+position:absolute;
+
+right:-120px;
+
+font-size:45px;
+
+opacity:.45;
+
+animation:
+
+nadar 18s linear infinite;
+
+}
+
+
+
+.peixe{
+
+top:20%;
+
+}
+
+
+
+.peixe2{
+
+top:40%;
+
+animation-delay:5s;
+
+}
+
+
+
+.tartaruga{
+
+top:60%;
+
+animation-delay:8s;
+
+}
+
+
+
+.baleia{
+
+top:75%;
+
+font-size:70px;
+
+animation-delay:12s;
+
+}
+
+
+
+.polvo{
+
+top:50%;
+
+animation-delay:15s;
+
+}
+
+
+
+
+@keyframes nadar{
+
+
+0%{
+
+transform:translateX(0);
+
+}
+
+
+100%{
+
+transform:translateX(-120vw);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/* ESTRELAS FIXAS */
+
+
+body:after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
 
 
 background-image:
@@ -72,41 +197,11 @@ transparent 1px
 );
 
 
+background-size:60px 60px;
 
-background-size:
+opacity:.25;
 
-45px 45px;
-
-
-
-animation:
-
-estrelas 25s linear infinite;
-
-
-opacity:.7;
-
-}
-
-
-
-
-@keyframes estrelas{
-
-
-from{
-
-transform:translateY(0);
-
-}
-
-
-to{
-
-transform:translateY(200px);
-
-}
-
+z-index:-1;
 
 }
 
@@ -115,292 +210,70 @@ transform:translateY(200px);
 
 
 
-
-
-.onda{
-
-
-position:absolute;
-
-
-bottom:-250px;
-
-
-left:-20%;
-
-
-width:140%;
-
-
-height:450px;
-
-
-
-background:
-
-linear-gradient(
-#005b9f,
-#00172e
-);
-
-
-
-border-radius:
-
-50% 50% 0 0;
-
-
-
-animation:
-
-onda 5s infinite alternate;
-
-
-}
-
-
-
-
-@keyframes onda{
-
-
-to{
-
-transform:translateY(-30px);
-
-}
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-/* =================
-ANIMAIS
-================= */
-
-
-.animais{
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-z-index:2;
-
-}
-
-
-
-.animais div{
-
-position:absolute;
-
-
-right:-100px;
-
-
-font-size:40px;
-
-
-
-opacity:.35;
-
-
-
-animation:
-
-nadar 18s linear infinite;
-
-
-}
-
-
-
-
-.animais div:nth-child(1){
-
-top:20%;
-
-}
-
-
-
-.animais div:nth-child(2){
-
-top:35%;
-
-animation-delay:4s;
-
-}
-
-
-
-.animais div:nth-child(3){
-
-top:55%;
-
-animation-delay:7s;
-
-}
-
-
-
-.animais div:nth-child(4){
-
-top:70%;
-
-animation-delay:10s;
-
-}
-
-
-
-.animais div:nth-child(5){
-
-top:45%;
-
-animation-delay:13s;
-
-}
-
-
-
-
-@keyframes nadar{
-
-
-to{
-
-
-transform:
-
-translateX(-120vw);
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =================
-CONTEÚDO
-================= */
-
-
-main{
-
-
-position:relative;
-
-
-z-index:5;
-
-
-}
 
 
 
 section{
 
-
 min-height:100vh;
 
-
-padding:50px 25px;
-
+padding:60px 25px;
 
 
 display:flex;
 
 flex-direction:column;
 
-
 justify-content:center;
-
 
 align-items:center;
 
 
 text-align:center;
 
+position:relative;
+
+z-index:5;
 
 }
-
 
 
 
 
 h1{
 
-
 font-size:45px;
 
-
-color:#9eeaff;
-
+color:#9deaff;
 
 text-shadow:
 
-0 0 25px #00cfff;
-
+0 0 25px #00bfff;
 
 }
-
 
 
 h2{
 
-
 font-size:30px;
 
+color:#b8eaff;
 
 margin-bottom:25px;
 
-
-color:#a8ecff;
-
-
 }
-
-
 
 
 
 p{
 
-
-max-width:650px;
-
-
-line-height:1.8;
-
+max-width:700px;
 
 font-size:18px;
 
+line-height:1.8;
 
 }
-
-
-
 
 
 
@@ -416,12 +289,12 @@ button{
 
 margin-top:25px;
 
+padding:
 
-padding:15px 35px;
+15px 35px;
 
 
 border:none;
-
 
 border-radius:50px;
 
@@ -431,9 +304,8 @@ background:
 linear-gradient(
 90deg,
 #006eff,
-#9d3cff
+#9d35ff
 );
-
 
 
 color:white;
@@ -445,11 +317,9 @@ font-size:18px;
 cursor:pointer;
 
 
-
 box-shadow:
 
 0 0 25px #008cff;
-
 
 
 transition:.3s;
@@ -458,12 +328,9 @@ transition:.3s;
 }
 
 
-
 button:hover{
 
-
 transform:scale(1.08);
-
 
 }
 
@@ -483,8 +350,7 @@ transform:scale(1.08);
 
 width:85%;
 
-
-max-width:380px;
+max-width:400px;
 
 
 border-radius:25px;
@@ -492,8 +358,38 @@ border-radius:25px;
 
 box-shadow:
 
-0 0 50px black;
+0 0 40px black;
 
+
+}
+
+
+
+
+
+/* MUSICA */
+
+
+.player-box{
+
+
+background:
+
+rgba(255,255,255,.12);
+
+
+backdrop-filter:blur(12px);
+
+
+padding:30px;
+
+
+border-radius:25px;
+
+
+border:
+
+1px solid rgba(255,255,255,.2);
 
 }
 
@@ -505,30 +401,29 @@ box-shadow:
 
 
 
-/* DATAS */
+
+/* DATA */
 
 
 .data{
 
 
-font-size:35px;
-
+font-size:32px;
 
 font-weight:bold;
-
 
 letter-spacing:5px;
 
 
-color:#b5f5ff;
+color:#baf5ff;
 
 
 text-shadow:
 
-0 0 20px #00bfff;
-
+0 0 20px #00d9ff;
 
 }
+
 
 
 
@@ -540,14 +435,15 @@ text-shadow:
 /* CONTADORES */
 
 
-.contador,
+.contador-beijo,
 .tempo{
 
 
 display:grid;
 
 
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:
+repeat(3,1fr);
 
 
 gap:15px;
@@ -555,12 +451,11 @@ gap:15px;
 
 margin-top:25px;
 
-
 }
 
 
 
-.contador div,
+.contador-beijo div,
 .tempo div{
 
 
@@ -569,6 +464,8 @@ background:
 rgba(255,255,255,.12);
 
 
+backdrop-filter:blur(10px);
+
 
 padding:20px;
 
@@ -576,12 +473,9 @@ padding:20px;
 border-radius:20px;
 
 
-
-backdrop-filter:blur(10px);
-
+min-width:80px;
 
 }
-
 
 
 span{
@@ -589,15 +483,11 @@ span{
 
 display:block;
 
-
-font-size:30px;
-
-
-color:#9eeaff;
-
+font-size:32px;
 
 font-weight:bold;
 
+color:#8deaff;
 
 }
 
@@ -609,9 +499,7 @@ font-weight:bold;
 
 
 
-
-
-/* FOTOS */
+/* GALERIA */
 
 
 .galeria{
@@ -635,34 +523,37 @@ padding:20px;
 }
 
 
-
-.galeria img{
+.card{
 
 
 min-width:80%;
 
 
+background:
+
+rgba(255,255,255,.1);
+
+
 border-radius:25px;
 
 
-cursor:pointer;
-
-
-transition:.4s;
+padding:20px;
 
 
 }
 
 
 
-.galeria img:hover{
+.card img{
 
 
-transform:scale(1.05);
+width:100%;
+
+
+border-radius:20px;
 
 
 }
-
 
 
 
@@ -673,6 +564,21 @@ transform:scale(1.05);
 
 
 /* CARTA */
+
+
+.area-carta{
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+
 
 
 .envelope{
@@ -690,14 +596,23 @@ transition:.5s;
 }
 
 
-
 .envelope:hover{
 
 
-transform:scale(1.15) rotate(5deg);
+transform:
+
+scale(1.15);
+
+
+filter:
+
+drop-shadow(
+0 0 25px #72eaff
+);
 
 
 }
+
 
 
 
@@ -706,35 +621,205 @@ transform:scale(1.15) rotate(5deg);
 .papel{
 
 
-margin-top:30px;
+width:600px;
 
-
-max-width:420px;
+max-width:90%;
 
 
 background:
 
-rgba(255,255,255,.18);
+rgba(255,255,255,.13);
+
+
+backdrop-filter:
+
+blur(15px);
+
+
+border:
+
+1px solid rgba(255,255,255,.25);
 
 
 
-backdrop-filter:blur(15px);
+padding:45px;
 
 
-
-padding:30px;
-
-
-border-radius:25px;
-
+border-radius:30px;
 
 
 box-shadow:
 
-0 0 40px black;
+0 0 50px rgba(0,150,255,.35);
+
+
+opacity:0;
+
+
+visibility:hidden;
+
+
+transform:
+
+translateY(40px) scale(.9);
+
+
+transition:
+
+.8s ease;
 
 
 }
+
+
+
+
+.papel.mostrar{
+
+
+opacity:1;
+
+
+visibility:visible;
+
+
+transform:
+
+translateY(0) scale(1);
+
+
+}
+
+
+
+
+
+
+
+.clique{
+
+
+margin-top:20px;
+
+opacity:.8;
+
+}
+
+
+
+
+
+
+
+
+
+/* CHUVA ESTRELAS */
+
+
+.estrela{
+
+
+position:fixed;
+
+
+top:-20px;
+
+
+width:3px;
+
+
+height:3px;
+
+
+background:white;
+
+
+border-radius:50%;
+
+
+z-index:100;
+
+
+animation:
+
+cair 3s linear forwards;
+
+
+}
+
+
+
+@keyframes cair{
+
+
+0%{
+
+transform:
+translateY(-20px);
+
+opacity:1;
+
+}
+
+
+
+100%{
+
+
+transform:
+translateY(110vh);
+
+
+opacity:0;
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+/* CORAÇÕES */
+
+
+.coracao{
+
+
+position:fixed;
+
+
+z-index:100;
+
+
+animation:
+
+subir 2s linear forwards;
+
+}
+
+
+
+@keyframes subir{
+
+
+to{
+
+transform:
+translateY(-300px);
+
+opacity:0;
+
+}
+
+
+}
+
 
 
 
@@ -746,7 +831,7 @@ box-shadow:
 /* FOTO GRANDE */
 
 
-#fotoGrande{
+#visualFoto{
 
 
 display:none;
@@ -763,20 +848,19 @@ background:
 rgba(0,0,0,.9);
 
 
-z-index:100;
-
-
-align-items:center;
+z-index:200;
 
 
 justify-content:center;
 
 
+align-items:center;
+
+
 }
 
 
-
-#fotoGrande img{
+#visualFoto img{
 
 
 max-width:90%;
@@ -787,7 +871,6 @@ max-height:90%;
 
 border-radius:25px;
 
-
 }
 
 
@@ -797,29 +880,7 @@ border-radius:25px;
 
 
 
-
-/* FINAL */
-
-
-.final{
-
-
-background:
-
-linear-gradient(
-transparent,
-#000
-);
-
-
-}
-
-
-
-
-
-
-
+/* CELULAR */
 
 
 @media(max-width:600px){
@@ -845,6 +906,24 @@ font-size:25px;
 .data{
 
 font-size:24px;
+
+}
+
+
+
+.contador-beijo,
+.tempo{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+
+
+.papel{
+
+padding:25px;
 
 }
 
