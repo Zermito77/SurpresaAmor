@@ -1,19 +1,62 @@
-// ==========================
-// ABRIR PRESENTE
-// ==========================
-
-console.log("script carregou");
-
-function abrirPresente(){
+// =========================
+// TEXTO INICIAL DIGITANDO
+// =========================
 
 
-document.body.classList.add("aberto");
+let mensagem =
+"Preparei um presente especial para você... 💙";
 
 
-efeitoCoracao();
+let i = 0;
 
 
-setTimeout(()=>{
+function escrever(){
+
+
+let texto =
+document.getElementById("textoInicial");
+
+
+
+if(!texto) return;
+
+
+
+if(i < mensagem.length){
+
+
+texto.innerHTML += mensagem.charAt(i);
+
+
+i++;
+
+
+setTimeout(escrever,60);
+
+
+}
+
+
+}
+
+
+
+window.onload = escrever;
+
+
+
+
+
+
+
+
+
+// =========================
+// BOTÃO ABRIR PRESENTE
+// =========================
+
+
+function abrirHistoria(){
 
 
 document
@@ -25,99 +68,26 @@ behavior:"smooth"
 });
 
 
-},800);
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-// ==========================
-// TEXTO DIGITANDO
-// ==========================
-
-
-
-let texto = 
-"Preparei um presente especial para você...";
-
-
-
-let posicao = 0;
-
-
-
-function escreverTexto(){
-
-
-let elemento =
-document.getElementById("digitando");
-
-
-
-if(!elemento) return;
-
-
-
-if(posicao < texto.length){
-
-
-
-elemento.innerHTML += 
-texto.charAt(posicao);
-
-
-
-posicao++;
-
-
-
-setTimeout(
-escreverTexto,
-70
-);
-
+criarCoracao();
 
 
 }
 
 
 
-}
-
-
-
-window.addEventListener(
-"load",
-escreverTexto
-);
 
 
 
 
 
 
-
-
-
-
-
-// ==========================
+// =========================
 // MÚSICA
-// ==========================
+// =========================
 
 
 
 function tocarMusica(){
-
 
 
 let musica =
@@ -141,54 +111,7 @@ musica.pause();
 
 
 
-efeitoCoracao();
-
-
-}
-
-
-
-
-
-
-
-
-
-// ==========================
-// CARTA
-// ==========================
-
-
-
-function abrirCarta(){
-
-
-
-let envelope =
-document.querySelector(".envelope");
-
-
-
-let carta =
-document.getElementById("carta");
-
-
-
-envelope.classList.add("saindo");
-
-
-
-setTimeout(()=>{
-
-
-carta.classList.add("mostrar");
-
-
-efeitoCoracao();
-
-
-
-},900);
+criarCoracao();
 
 
 
@@ -202,98 +125,12 @@ efeitoCoracao();
 
 
 
-// ==========================
-// SEGUNDA MENSAGEM
-// ==========================
-
-
-
-function segundaCarta(){
-
-
-
-let texto =
-document.getElementById("segundaMensagem");
-
-
-
-if(!texto) return;
-
-
-
-texto.innerHTML =
-
-
-
-"✨ Ainda quero viver muitos capítulos dessa história ao seu lado. 🌊💙";
-
-
-
-efeitoCoracao();
-
-
-
-}
-
-
-
-
-
-
-
-
-
-// ==========================
-// CONCHA
-// ==========================
-
-
-
-function mostrarSegredo(){
-
-
-
-let concha =
-document.querySelector(".concha");
-
-
-
-concha.classList.add("abrir");
-
-
-
-document
-.getElementById("mensagemSecreta")
-.innerHTML =
-
-
-
-"🌊 O maior tesouro que encontrei no mar foi ter você comigo. 💙";
-
-
-
-efeitoCoracao();
-
-
-
-}
-
-
-
-
-
-
-
-
-
-// ==========================
+// =========================
 // CORAÇÕES
-// ==========================
+// =========================
 
 
-
-function efeitoCoracao(){
-
+function criarCoracao(){
 
 
 let coracao =
@@ -301,23 +138,26 @@ document.createElement("div");
 
 
 
-coracao.className =
-"coracao";
+coracao.innerHTML="❤️";
 
 
-
-coracao.innerHTML =
-"❤️";
-
-
+coracao.style.position="fixed";
 
 coracao.style.left =
-Math.random()*90 + "%";
+Math.random()*90+"%";
 
 
+coracao.style.bottom="0";
 
-coracao.style.bottom =
-"20px";
+
+coracao.style.fontSize="30px";
+
+
+coracao.style.zIndex="200";
+
+
+coracao.style.animation=
+"subir 2s linear";
 
 
 
@@ -329,7 +169,6 @@ setTimeout(()=>{
 
 
 coracao.remove();
-
 
 
 },2000);
@@ -345,56 +184,44 @@ coracao.remove();
 
 
 
-
-// ==========================
+// =========================
 // FOTO FULLSCREEN
-// ==========================
+// =========================
 
 
 
-function abrirFoto(imagem){
+function abrirFoto(src){
 
 
 
 let tela =
-document.getElementById("visualFoto");
-
-
-
-let foto =
 document.getElementById("fotoGrande");
 
 
 
-foto.src = imagem;
+let imagem =
+document.getElementById("imagemAberta");
 
 
 
-tela.style.display =
-"flex";
+imagem.src=src;
 
 
 
-efeitoCoracao();
+tela.style.display="flex";
 
 
 
 }
-
-
-
-
 
 
 
 function fecharFoto(){
 
 
-
 document
-.getElementById("visualFoto")
+.getElementById("fotoGrande")
 .style.display="none";
-
 
 
 }
@@ -407,34 +234,63 @@ document
 
 
 
-// ==========================
+
+// =========================
+// CARTA
+// =========================
+
+
+
+function abrirCarta(){
+
+
+let carta =
+document.getElementById("carta");
+
+
+
+carta.style.transform=
+"scale(1.05)";
+
+
+
+carta.style.transition=
+".5s";
+
+
+
+criarCoracao();
+
+
+}
+
+
+
+
+
+
+
+
+
+// =========================
 // CONTADORES
-// ==========================
+// =========================
 
 
 
-const primeiroBeijo =
-
-new Date(
-"2024-10-11T00:00:00"
-);
+let beijo =
+new Date("2024-10-11T00:00:00");
 
 
 
-const juntos =
-
-new Date(
-"2024-12-26T00:00:00"
-);
+let juntos =
+new Date("2024-12-26T00:00:00");
 
 
 
 
 
-
-
-function calcularTempo(data){
-
+function tempo(data){
 
 
 let agora =
@@ -443,7 +299,6 @@ new Date();
 
 
 let segundos =
-
 Math.floor(
 (agora-data)/1000
 );
@@ -451,7 +306,6 @@ Math.floor(
 
 
 let minutos =
-
 Math.floor(
 segundos/60
 );
@@ -459,7 +313,6 @@ segundos/60
 
 
 let horas =
-
 Math.floor(
 minutos/60
 );
@@ -467,7 +320,6 @@ minutos/60
 
 
 let dias =
-
 Math.floor(
 horas/24
 );
@@ -475,32 +327,28 @@ horas/24
 
 
 let anos =
-
 Math.floor(
 dias/365
 );
 
 
 
-dias =
-dias % 365;
+dias%=365;
 
 
 
 let meses =
-
 Math.floor(
 dias/30
 );
 
 
 
-dias =
-dias % 30;
+dias%=30;
 
 
 
-return {
+return{
 
 
 anos,
@@ -510,19 +358,18 @@ meses,
 dias,
 
 horas:
-horas % 24,
+horas%24,
 
 
 minutos:
-minutos % 60,
+minutos%60,
 
 
 segundos:
-segundos % 60
+segundos%60
 
 
 };
-
 
 
 }
@@ -534,35 +381,23 @@ segundos % 60
 
 
 
-
-function atualizarContadores(){
-
+function atualizar(){
 
 
-let beijo =
-calcularTempo(primeiroBeijo);
+
+let b =
+tempo(beijo);
 
 
 
 if(document.getElementById("anos")){
 
 
-document.getElementById("anos")
-.innerHTML =
-beijo.anos;
+anos.innerHTML=b.anos;
 
+meses.innerHTML=b.meses;
 
-
-document.getElementById("meses")
-.innerHTML =
-beijo.meses;
-
-
-
-document.getElementById("dias")
-.innerHTML =
-beijo.dias;
-
+dias.innerHTML=b.dias;
 
 
 }
@@ -571,11 +406,8 @@ beijo.dias;
 
 
 
-
-
-let tempo =
-calcularTempo(juntos);
-
+let t =
+tempo(juntos);
 
 
 
@@ -583,71 +415,17 @@ calcularTempo(juntos);
 if(document.getElementById("a")){
 
 
-document.getElementById("a")
-.innerHTML =
-tempo.anos;
+a.innerHTML=t.anos;
 
+m.innerHTML=t.meses;
 
+d.innerHTML=t.dias;
 
-document.getElementById("m")
-.innerHTML =
-tempo.meses;
+h.innerHTML=t.horas;
 
+min.innerHTML=t.minutos;
 
-
-document.getElementById("d")
-.innerHTML =
-tempo.dias;
-
-
-
-document.getElementById("h")
-.innerHTML =
-tempo.horas;
-
-
-
-document.getElementById("min")
-.innerHTML =
-tempo.minutos;
-
-
-
-document.getElementById("s")
-.innerHTML =
-tempo.segundos;
-
-
-
-}
-
-
-
-
-
-
-
-
-if(document.getElementById("contadorFinal")){
-
-
-document.getElementById("contadorFinal")
-.innerHTML =
-
-
-"Já vivemos: <br>" +
-
-tempo.dias +
-" dias ❤️<br>" +
-
-tempo.horas +
-" horas<br>" +
-
-tempo.minutos +
-" minutos<br>" +
-
-tempo.segundos +
-" segundos";
+s.innerHTML=t.segundos;
 
 
 }
@@ -658,19 +436,10 @@ tempo.segundos +
 
 
 
+setInterval(atualizar,1000);
 
 
-
-
-
-setInterval(
-atualizarContadores,
-1000
-);
-
-
-
-atualizarContadores();
+atualizar();
 
 
 
@@ -680,56 +449,46 @@ atualizarContadores();
 
 
 
-// ==========================
-// PARALLAX
-// ==========================
+// =========================
+// ANIMAÇÃO DOS CORAÇÕES
+// =========================
+
+
+let estilo =
+document.createElement("style");
 
 
 
-window.addEventListener(
-"scroll",
-()=>{
+estilo.innerHTML=`
 
 
-let scroll =
-window.scrollY;
+@keyframes subir{
 
 
+0%{
 
-let ondas =
-document.querySelector(".ondas");
+transform:translateY(0);
 
-
-
-let estrelas =
-document.querySelector(".estrelas");
-
-
-
-
-
-if(ondas){
-
-
-ondas.style.transform =
-
-`translateY(${-scroll*0.15}px)`;
+opacity:1;
 
 }
 
 
+100%{
 
-if(estrelas){
+transform:
+translateY(-300px);
 
+opacity:0;
 
-estrelas.style.transform =
+}
 
-`translateY(${scroll*0.08}px)`;
 
 }
 
 
+`;
 
-}
 
-);
+
+document.head.appendChild(estilo);
