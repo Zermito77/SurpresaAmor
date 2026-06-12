@@ -71,7 +71,7 @@ z-index:-2;
 
 
 
-/* ANIMAIS */
+/* ANIMAIS DO MAR */
 
 
 .mar{
@@ -87,6 +87,7 @@ pointer-events:none;
 z-index:1;
 
 }
+
 
 
 
@@ -617,7 +618,9 @@ border-radius:15px;
 
 
 
-/* CARTA */
+/* ==========================
+   CARTA / ENVELOPE
+========================== */
 
 
 .area-carta{
@@ -626,13 +629,13 @@ border-radius:15px;
 display:flex;
 
 
+flex-direction:column;
+
+
 justify-content:center;
 
 
 align-items:center;
-
-
-flex-direction:column;
 
 
 }
@@ -643,33 +646,82 @@ flex-direction:column;
 .envelope{
 
 
-width:110px;
+width:130px;
 
 
-height:75px;
+height:90px;
+
 
 
 background:#0875a8;
+
 
 
 position:relative;
 
 
 
-border-radius:8px;
-
-
 cursor:pointer;
+
+
+
+border-radius:10px;
 
 
 
 box-shadow:
 
-0 0 30px #00cfff;
+0 0 35px #00cfff;
 
 
 
-transition:.5s;
+transition:
+
+.8s ease;
+
+
+
+z-index:10;
+
+
+}
+
+
+
+
+
+/* parte de baixo */
+
+
+.envelope:after{
+
+
+content:"";
+
+position:absolute;
+
+
+left:0;
+
+
+bottom:0;
+
+
+
+border-left:
+
+65px solid transparent;
+
+
+border-right:
+
+65px solid transparent;
+
+
+
+border-bottom:
+
+45px solid #04577d;
 
 
 }
@@ -678,16 +730,8 @@ transition:.5s;
 
 
 
-.envelope:hover{
 
-
-transform:scale(1.1);
-
-
-}
-
-
-
+/* tampa */
 
 
 .envelope:before{
@@ -708,18 +752,84 @@ left:0;
 
 border-left:
 
-55px solid transparent;
+65px solid transparent;
 
 
 border-right:
 
-55px solid transparent;
+65px solid transparent;
 
 
 
 border-top:
 
-40px solid #65e5ff;
+50px solid #5de1ff;
+
+
+
+transform-origin:top;
+
+
+
+transition:
+
+.8s ease;
+
+
+
+z-index:5;
+
+
+}
+
+
+
+
+
+.envelope:hover{
+
+
+transform:
+
+scale(1.08);
+
+
+}
+
+
+
+
+
+
+
+/* envelope aberto */
+
+
+.envelope.aberto{
+
+
+transform:
+
+translateX(-140px);
+
+
+
+opacity:0;
+
+
+}
+
+
+
+
+
+
+.envelope.aberto:before{
+
+
+transform:
+
+rotateX(180deg);
 
 
 }
@@ -737,13 +847,13 @@ border-top:
 width:90%;
 
 
-max-width:420px;
+max-width:430px;
 
 
 
 background:
 
-rgba(255,255,255,.15);
+rgba(255,255,255,.16);
 
 
 
@@ -753,11 +863,11 @@ blur(12px);
 
 
 
-padding:25px;
+padding:28px;
 
 
 
-border-radius:20px;
+border-radius:22px;
 
 
 
@@ -774,11 +884,13 @@ visibility:hidden;
 
 transform:
 
-translateY(30px);
+translateY(40px);
 
 
-transition:.6s;
 
+transition:
+
+.8s ease;
 
 
 box-shadow:
@@ -787,6 +899,7 @@ box-shadow:
 
 
 }
+
 
 
 
@@ -814,9 +927,12 @@ translateY(0);
 
 
 
+
 .clique{
 
+
 margin-top:15px;
+
 
 }
 
@@ -880,7 +996,7 @@ opacity:0;
 
 
 
-/* FOTO AMPLIADA */
+/* FOTO GRANDE */
 
 
 #visualFoto{
@@ -1029,6 +1145,7 @@ font-size:21px;
 
 
 
+
 .contador-beijo,
 .tempo{
 
@@ -1042,16 +1159,38 @@ repeat(2,1fr);
 
 
 
+
+
 .envelope{
 
 
-width:100px;
+width:110px;
 
 
-height:70px;
+height:75px;
 
 
 }
+
+
+
+
+.envelope:after{
+
+
+border-left-width:
+
+55px;
+
+
+border-right-width:
+
+55px;
+
+
+}
+
+
 
 
 
@@ -1060,15 +1199,28 @@ height:70px;
 
 border-left-width:
 
-50px;
+55px;
 
 
 border-right-width:
 
-50px;
+55px;
 
 
 }
+
+
+
+.envelope.aberto{
+
+
+transform:
+
+translateX(-90px);
+
+
+}
+
 
 
 .papel{
