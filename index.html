@@ -17,23 +17,14 @@
 <body>
 
 
-<div class="fundo">
 
-<div class="estrelas"></div>
+<div class="mar">
 
-<div class="onda"></div>
-
-</div>
-
-
-
-<div class="animais">
-
-<div>🐠</div>
-<div>🐟</div>
-<div>🐢</div>
-<div>🐋</div>
-<div>🐙</div>
+<div class="animal peixe">🐠</div>
+<div class="animal peixe2">🐟</div>
+<div class="animal tartaruga">🐢</div>
+<div class="animal baleia">🐋</div>
+<div class="animal polvo">🐙</div>
 
 </div>
 
@@ -41,7 +32,8 @@
 
 
 
-<main>
+
+
 
 
 <section class="inicio">
@@ -50,7 +42,15 @@
 <h1>Laura 💙</h1>
 
 
-<p id="textoInicial"></p>
+<br>
+
+
+<p>
+
+Preparei um presente especial para você...
+
+</p>
+
 
 
 <p>
@@ -61,12 +61,16 @@ e um pouco da nossa história.
 </p>
 
 
+<br><br>
 
-<button onclick="abrirHistoria()">
 
-Abrir presente 🌊
+
+<button onclick="irParaHistoria()">
+
+Abrir presente!
 
 </button>
+
 
 
 </section>
@@ -82,8 +86,16 @@ Abrir presente 🌊
 <section id="historia">
 
 
-<img class="foto-principal"
-src="fotos/inicio.jpeg">
+
+<img
+
+class="foto-principal"
+
+src="./fotos/inicio.jpeg"
+
+alt="Nossa foto">
+
+
 
 
 
@@ -91,37 +103,30 @@ src="fotos/inicio.jpeg">
 
 
 
+
+
 <p>
 
 
 Desde que você apareceu no meu caminho,<br>
-
 minha vida ganhou novas cores.<br>
 
-
 <br>
 
-
-Você trouxe calma para os meus dias,
+Você trouxe calma para os meus dias,<br>
 como o som das ondas trazendo paz ao coração.<br>
 
-
 <br>
 
-
-Cada momento com você virou uma lembrança
+Cada momento com você virou uma lembrança<br>
 que eu guardo com todo carinho.<br>
 
-
 <br>
 
-
-Obrigado por cada aventura,
-cada conversa e cada momento juntos.<br>
-
+Obrigado por cada aventura, cada conversa<br>
+e cada momento que passamos juntos.<br>
 
 <br>
-
 
 Você é muito especial para mim. 💙
 
@@ -129,6 +134,7 @@ Você é muito especial para mim. 💙
 </p>
 
 
+
 </section>
 
 
@@ -142,22 +148,48 @@ Você é muito especial para mim. 💙
 <section>
 
 
-<h2>🎵 Música que lembra você</h2>
+<h2>Música que lembra você:</h2>
+
+
+
+<div class="player-box">
+
+
+
+<p>
+
+"A gente já era um encontro marcado"<br><br>
+
+Algumas músicas passam pelos ouvidos,
+mas algumas ficam guardadas no coração.<br><br>
+
+Essa sempre vai lembrar de nós. 💙
+
+</p>
+
 
 
 
 <button onclick="tocarMusica()">
 
-Tocar nossa música
+🎶 Tocar nossa música 🎶
 
 </button>
 
 
+
+
 <audio id="musica">
 
-<source src="musica.mp3">
+
+<source src="musica.mp3" type="audio/mpeg">
+
 
 </audio>
+
+
+
+</div>
 
 
 </section>
@@ -170,42 +202,70 @@ Tocar nossa música
 
 
 
-
 <section>
+
 
 
 <h2>Nosso primeiro beijo 💙</h2>
 
 
-<p class="data">
 
-11 • 10 • 2024
+<p>
+
+O dia em que nossa história ganhou
+um dos seus capítulos mais especiais.
 
 </p>
 
 
-<div class="contador">
+
+
+<p class="data">
+
+11 • 10 • 2024 💙
+
+</p>
+
+
+
+
+
+
+<div class="contador-beijo">
 
 
 <div>
+
 <span id="anos">0</span>
+
 Anos
+
 </div>
 
 
+
 <div>
+
 <span id="meses">0</span>
+
 Meses
+
 </div>
+
 
 
 <div>
+
 <span id="dias">0</span>
+
 Dias
+
 </div>
 
 
+
 </div>
+
 
 
 </section>
@@ -219,31 +279,109 @@ Dias
 
 
 <section>
+
 
 
 <h2>🌊 Nossos momentos 🌊</h2>
 
 
 
+
 <div class="galeria">
 
 
-<img src="fotos/foto1.jpeg"
-onclick="abrirFoto(this.src)">
 
 
 
-<img src="fotos/foto2.jpeg"
-onclick="abrirFoto(this.src)">
+<div class="card">
+
+
+<img src="./fotos/foto1.jpeg">
 
 
 
-<img src="fotos/foto3.jpeg"
-onclick="abrirFoto(this.src)">
+<h3>Nosso começo ❤️</h3>
+
+
+
+<p>
+
+A primeira lembrança depois de um momento
+que mudou o rumo da nossa história.
+
+</p>
 
 
 
 </div>
+
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="./fotos/foto2.jpeg">
+
+
+
+<h3>Nosso pôr do sol 🌅</h3>
+
+
+
+
+<p>
+
+Nós dois juntos no alto do morro,
+felizes em nossas aventuras.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="./fotos/foto3.jpeg">
+
+
+
+<h3>Nosso passeio 🚤</h3>
+
+
+
+<p>
+
+Passeio de barco pelo Recife,
+criando mais uma memória nossa.
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
 
 
 </section>
@@ -257,6 +395,8 @@ onclick="abrirFoto(this.src)">
 
 
 <section>
+
+
 
 
 <h2>
@@ -267,53 +407,88 @@ Compartilhando momentos juntos há:
 
 
 
+
+
 <div class="tempo">
 
 
+
 <div>
+
 <span id="a">0</span>
+
 Anos
+
 </div>
 
 
+
 <div>
+
 <span id="m">0</span>
+
 Meses
+
 </div>
 
 
+
+
 <div>
+
 <span id="d">0</span>
+
 Dias
+
 </div>
 
 
+
+
 <div>
+
 <span id="h">0</span>
+
 Horas
+
 </div>
 
 
+
+
 <div>
+
 <span id="min">0</span>
+
 Min
+
 </div>
+
+
 
 
 <div>
+
 <span id="s">0</span>
+
 Seg
+
 </div>
 
 
+
 </div>
+
+
+
 
 
 <p class="data">
 
-26 • 12 • 2024
+26 • 12 • 2024 💙
 
 </p>
+
 
 
 </section>
@@ -329,67 +504,153 @@ Seg
 <section class="carta">
 
 
-<h2>Uma última coisa... 💌</h2>
 
 
 
-<div class="envelope"
-onclick="abrirCarta()">
+<h2>
+
+Uma última coisa... 💌
+
+</h2>
+
+
+
+
+
+<div class="area-carta">
+
+
+
+
+
+<div class="envelope" onclick="abrirCarta()">
 
 
 
 💌
 
 
+
 </div>
+
+
+
+
+
+
 
 
 
 <div class="papel" id="carta">
 
 
-<h3>Laura ❤️</h3>
+
+
+
+<h3>Laura,</h3>
+
+
 
 
 
 <p>
+
 
 
 Nosso amor é como o mar:
 
-profundo, bonito e infinito.
+belo, profundo e impossível de medir.
 
-
-<br><br>
-
-
-Mesmo com todas as ondas,
-eu sempre vou escolher navegar ao seu lado.
 
 
 <br><br>
 
 
-Entre todas as estrelas do céu,
-você continua sendo meu brilho favorito.
+
+Que a gente continue escrevendo nossa história,
+
+com muitos mares para explorar e muitos sonhos
+
+para realizar.
+
 
 
 <br><br>
 
 
-Eu te amo.
+
+Independente do tamanho das ondas,
+
+eu sempre vou estar ao seu lado.
+
 
 
 <br><br>
 
 
-Ass: Arthur 💙
+
+E mesmo observando todas as estrelas do céu,
+
+o meu brilho favorito sempre vai ser você.
+
+
+
+<br><br>
+
+
+
+Obrigado por todos os momentos,
+
+por todos os sorrisos
+
+e por ser a minha melhor companhia.
+
+
+
+<br><br>
+
+
+
+Eu te amo. 💙
+
+
+
+<br><br>
+
+
+Ass: Arthur ❤️
+
 
 
 </p>
 
 
+
+
+
 </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<p class="clique">
+
+Clique no envelope
+
+</p>
+
+
+
 
 
 </section>
@@ -402,49 +663,22 @@ Ass: Arthur 💙
 
 
 
-
-<section class="final">
-
-
-<h1>Laura ❤️</h1>
+<div id="visualFoto">
 
 
-<p>
+<img id="fotoGrande">
 
-Essa página termina aqui...
-
-mas nossa história continua.
-
-🌊⭐
-
-</p>
-
-
-
-</section>
-
-
-
-
-
-
-</main>
-
-
-
-
-
-<div id="fotoGrande"
-onclick="fecharFoto()">
-
-<img id="imagemAberta">
 
 </div>
+
+
 
 
 
 
 <script src="script.js"></script>
+
+
 
 
 </body>
