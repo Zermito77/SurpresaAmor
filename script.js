@@ -2,9 +2,7 @@
 // ABRIR PRESENTE
 // ==========================
 
-
 function irParaHistoria(){
-
 
 document
 .getElementById("historia")
@@ -29,7 +27,6 @@ criarCoracao();
 // MUSICA PLAY / PAUSE
 // ==========================
 
-
 function tocarMusica(){
 
 
@@ -53,6 +50,7 @@ musica.pause();
 }
 
 
+
 criarCoracao();
 
 
@@ -64,12 +62,17 @@ criarCoracao();
 
 
 
+
 // ==========================
-// CARTA
+// ENVELOPE + CARTA
 // ==========================
 
 
 function abrirCarta(){
+
+
+let envelope =
+document.querySelector(".envelope");
 
 
 let carta =
@@ -77,14 +80,26 @@ document.getElementById("carta");
 
 
 
+envelope.classList.add("aberto");
+
+
+
+setTimeout(()=>{
+
+
 carta.classList.add("mostrar");
+
+
+},700);
 
 
 
 criarCoracao();
 
 
+
 }
+
 
 
 
@@ -95,7 +110,6 @@ criarCoracao();
 // ==========================
 // CONTADORES
 // ==========================
-
 
 
 const beijo =
@@ -114,12 +128,13 @@ new Date("2024-12-26T00:00:00");
 function calcularTempo(data){
 
 
+
 let agora =
 new Date();
 
 
 
-let total =
+let segundosTotal =
 Math.floor(
 (agora - data) / 1000
 );
@@ -127,45 +142,62 @@ Math.floor(
 
 
 let segundos =
-total % 60;
+segundosTotal % 60;
+
+
+
+let minutosTotal =
+Math.floor(segundosTotal / 60);
 
 
 
 let minutos =
-Math.floor(total / 60) % 60;
+minutosTotal % 60;
+
+
+
+let horasTotal =
+Math.floor(minutosTotal / 60);
 
 
 
 let horas =
-Math.floor(total / 3600) % 24;
+horasTotal % 24;
 
 
 
 let diasTotal =
-Math.floor(total / 86400);
+Math.floor(horasTotal / 24);
 
 
 
 let anos =
-Math.floor(diasTotal / 365);
+Math.floor(
+diasTotal / 365
+);
+
+
+
+let restoDias =
+diasTotal % 365;
 
 
 
 let meses =
 Math.floor(
-(diasTotal % 365) / 30
+restoDias / 30
 );
 
 
 
 let dias =
-(diasTotal % 365) % 30;
+restoDias % 30;
 
 
 
 
-return{
 
+return {
 
 anos,
 
@@ -179,7 +211,6 @@ minutos,
 
 segundos
 
-
 };
 
 
@@ -192,12 +223,14 @@ segundos
 
 
 
-function atualizar(){
+function atualizarContadores(){
 
 
 
 let b =
 calcularTempo(beijo);
+
+
 
 
 
@@ -208,8 +241,10 @@ document.getElementById("anos").innerHTML =
 b.anos;
 
 
+
 document.getElementById("meses").innerHTML =
 b.meses;
+
 
 
 document.getElementById("dias").innerHTML =
@@ -217,23 +252,14 @@ b.dias;
 
 
 
-}
-
-
-
-
-// caso queira adicionar esses IDs depois
-
-
-if(document.getElementById("horasBeijo")){
-
-
 document.getElementById("horasBeijo").innerHTML =
 b.horas;
 
 
+
 document.getElementById("minutosBeijo").innerHTML =
 b.minutos;
+
 
 
 document.getElementById("segundosBeijo").innerHTML =
@@ -248,8 +274,10 @@ b.segundos;
 
 
 
+
 let t =
 calcularTempo(juntos);
+
 
 
 
@@ -260,20 +288,25 @@ document.getElementById("a").innerHTML =
 t.anos;
 
 
+
 document.getElementById("m").innerHTML =
 t.meses;
+
 
 
 document.getElementById("d").innerHTML =
 t.dias;
 
 
+
 document.getElementById("h").innerHTML =
 t.horas;
 
 
+
 document.getElementById("min").innerHTML =
 t.minutos;
+
 
 
 document.getElementById("s").innerHTML =
@@ -289,13 +322,22 @@ t.segundos;
 
 
 
+
+
+
 setInterval(
-atualizar,
+
+atualizarContadores,
+
 1000
+
 );
 
 
-atualizar();
+
+atualizarContadores();
+
+
 
 
 
@@ -313,6 +355,7 @@ atualizar();
 function criarCoracao(){
 
 
+
 let coracao =
 document.createElement("div");
 
@@ -321,12 +364,13 @@ document.createElement("div");
 coracao.className="coracao";
 
 
+
 coracao.innerHTML="❤️";
 
 
 
 coracao.style.left =
-Math.random()*90+"%";
+Math.random()*90 + "%";
 
 
 
@@ -341,10 +385,16 @@ setTimeout(()=>{
 coracao.remove();
 
 
+
 },2000);
 
 
+
 }
+
+
+
+
 
 
 
@@ -364,11 +414,16 @@ document
 .forEach(img=>{
 
 
-img.onclick=function(){
+
+img.addEventListener(
+"click",
+function(){
+
 
 
 let tela =
 document.getElementById("visualFoto");
+
 
 
 let foto =
@@ -384,7 +439,10 @@ this.src;
 tela.style.display="flex";
 
 
+
 }
+
+);
 
 
 
@@ -395,12 +453,17 @@ tela.style.display="flex";
 
 
 
+
 document
 .getElementById("visualFoto")
-.onclick=function(){
+.addEventListener(
+"click",
+function(){
 
 
 this.style.display="none";
 
 
 }
+
+);
