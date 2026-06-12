@@ -1,19 +1,13 @@
 *{
-
 margin:0;
 padding:0;
-
 box-sizing:border-box;
-
 }
 
 
 html{
-
 scroll-behavior:smooth;
-
 }
-
 
 
 body{
@@ -21,38 +15,33 @@ body{
 font-family:'Segoe UI',Arial,sans-serif;
 
 background:
-
 linear-gradient(
 180deg,
 #050014,
-#071b42,
+#061b42,
 #00152b
 );
-
 
 color:white;
 
 overflow-x:hidden;
 
-
 }
+
 
 
 
 body.bloqueado{
-
 overflow:hidden;
-
 }
 
 
 
 
 
-
-/* ==========================
- FUNDO CÉU / MAR
-========================== */
+/* ======================
+FUNDO DO UNIVERSO
+====================== */
 
 
 .universo{
@@ -61,15 +50,13 @@ position:fixed;
 
 inset:0;
 
-z-index:0;
-
 overflow:hidden;
+
+z-index:0;
 
 pointer-events:none;
 
 }
-
-
 
 
 
@@ -79,6 +66,7 @@ pointer-events:none;
 position:absolute;
 
 inset:0;
+
 
 
 background-image:
@@ -96,14 +84,12 @@ background-size:
 
 
 
-animation:
-
-estrelasMove 40s linear infinite;
-
-
-
 opacity:.8;
 
+
+animation:
+
+movimentoEstrelas 40s linear infinite;
 
 }
 
@@ -111,7 +97,7 @@ opacity:.8;
 
 
 
-@keyframes estrelasMove{
+@keyframes movimentoEstrelas{
 
 
 from{
@@ -135,6 +121,96 @@ transform:translateY(250px);
 
 
 
+/* estrela cadente */
+
+
+.estrela-cadente{
+
+
+position:absolute;
+
+
+width:5px;
+
+
+height:5px;
+
+
+background:white;
+
+
+border-radius:50%;
+
+
+top:15%;
+
+
+left:-10%;
+
+
+box-shadow:
+
+0 0 25px white;
+
+
+
+animation:
+
+cadente 8s infinite;
+
+
+}
+
+
+
+@keyframes cadente{
+
+
+0%{
+
+transform:translate(0,0);
+
+opacity:0;
+
+}
+
+
+
+20%{
+
+opacity:1;
+
+}
+
+
+
+100%{
+
+transform:
+
+translate(120vw,50vh);
+
+
+opacity:0;
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* MAR */
+
+
 .ondas{
 
 
@@ -150,17 +226,15 @@ left:-10%;
 width:120%;
 
 
-
-height:65%;
-
+height:70%;
 
 
 background:
 
 linear-gradient(
 transparent,
-#003d73,
-#00172d
+#004b88,
+#00152d
 );
 
 
@@ -173,7 +247,7 @@ border-radius:
 
 animation:
 
-onda 8s infinite alternate;
+ondas 8s infinite alternate;
 
 
 }
@@ -181,8 +255,7 @@ onda 8s infinite alternate;
 
 
 
-
-@keyframes onda{
+@keyframes ondas{
 
 
 from{
@@ -199,7 +272,6 @@ transform:translateY(-40px);
 }
 
 
-
 }
 
 
@@ -208,6 +280,9 @@ transform:translateY(-40px);
 
 
 
+
+
+/* bolhas */
 
 
 .bolhas:before,
@@ -219,16 +294,17 @@ content:"";
 position:absolute;
 
 
+bottom:-100px;
 
-bottom:-80px;
+
+width:30px;
 
 
-width:25px;
-
-height:25px;
+height:30px;
 
 
 border-radius:50%;
+
 
 
 background:
@@ -236,9 +312,10 @@ background:
 rgba(255,255,255,.25);
 
 
+
 animation:
 
-bolha 12s infinite;
+bolhas 12s infinite;
 
 
 }
@@ -252,6 +329,7 @@ left:20%;
 }
 
 
+
 .bolhas:after{
 
 left:75%;
@@ -263,16 +341,17 @@ animation-delay:5s;
 
 
 
-@keyframes bolha{
+
+@keyframes bolhas{
 
 
 to{
 
 
 transform:
+
 translateY(-110vh)
 scale(1.5);
-
 
 
 opacity:0;
@@ -292,9 +371,10 @@ opacity:0;
 
 
 
-/* ==================
- ANIMAIS
-================== */
+/* ======================
+ANIMAIS
+====================== */
+
 
 
 .mar{
@@ -302,14 +382,17 @@ opacity:0;
 
 position:fixed;
 
+
 inset:0;
 
-z-index:2;
+
+z-index:3;
+
 
 pointer-events:none;
 
-
 }
+
 
 
 
@@ -325,25 +408,16 @@ right:-150px;
 font-size:45px;
 
 
-opacity:0;
+opacity:.0;
+
 
 
 animation:
 
 nadar 18s linear infinite;
 
-
 }
 
-
-
-
-
-.aberto .animal{
-
-opacity:.35;
-
-}
 
 
 
@@ -355,22 +429,25 @@ top:15%;
 }
 
 
+
 .peixe2{
 
 top:35%;
 
-animation-delay:4s;
+animation-delay:5s;
 
 }
+
 
 
 .tartaruga{
 
 top:60%;
 
-animation-delay:8s;
+animation-delay:9s;
 
 }
+
 
 
 .baleia{
@@ -382,11 +459,22 @@ animation-delay:12s;
 }
 
 
+
 .polvo{
 
 top:45%;
 
-animation-delay:6s;
+animation-delay:7s;
+
+}
+
+
+
+
+
+.aberto .animal{
+
+opacity:.35;
 
 }
 
@@ -408,6 +496,7 @@ translateX(-140vw);
 }
 
 
+
 }
 
 
@@ -415,6 +504,14 @@ translateX(-140vw);
 
 
 
+
+
+
+
+
+/* ======================
+CONTEUDO
+====================== */
 
 
 
@@ -433,19 +530,15 @@ opacity:0;
 visibility:hidden;
 
 
-transform:
-
-translateY(40px);
+transform:translateY(50px);
 
 
 
-transition:
-
-1.5s;
-
+transition:1.5s;
 
 
 }
+
 
 
 
@@ -454,12 +547,11 @@ transition:
 
 opacity:1;
 
+
 visibility:visible;
 
 
-transform:
-
-translateY(0);
+transform:translateY(0);
 
 
 }
@@ -478,7 +570,7 @@ section{
 min-height:100vh;
 
 
-padding:55px 25px;
+padding:50px 25px;
 
 
 
@@ -492,15 +584,15 @@ flex-direction:column;
 justify-content:center;
 
 
-
 align-items:center;
+
 
 
 text-align:center;
 
 
-
 }
+
 
 
 
@@ -512,7 +604,8 @@ h1{
 font-size:45px;
 
 
-color:#9feaff;
+color:#a7ecff;
+
 
 
 text-shadow:
@@ -524,17 +617,16 @@ text-shadow:
 
 
 
-
 h2{
 
 
 font-size:30px;
 
 
-color:#8eeaff;
+margin-bottom:25px;
 
 
-margin:20px;
+color:#9eeaff;
 
 
 }
@@ -553,9 +645,6 @@ font-size:17px;
 line-height:1.8;
 
 
-color:#f2f4ff;
-
-
 }
 
 
@@ -566,10 +655,16 @@ color:#f2f4ff;
 
 
 
+
+
+/* BOTÕES */
+
+
+
 button{
 
 
-margin-top:20px;
+margin-top:25px;
 
 
 padding:15px 35px;
@@ -579,6 +674,7 @@ border:none;
 
 
 border-radius:50px;
+
 
 
 font-size:18px;
@@ -592,21 +688,25 @@ background:
 
 linear-gradient(
 90deg,
-#377cff,
-#a044ff
+#3478ff,
+#9b3cff
 );
+
+
+
+cursor:pointer;
 
 
 
 box-shadow:
 
-0 0 30px #536cff;
+0 0 30px #5d7cff;
 
 
 
 animation:
 
-pulso 2s infinite;
+pulsar 2s infinite;
 
 
 }
@@ -616,15 +716,16 @@ pulso 2s infinite;
 
 button:active{
 
+
 transform:scale(.9);
+
 
 }
 
 
 
 
-
-@keyframes pulso{
+@keyframes pulsar{
 
 
 50%{
@@ -646,13 +747,16 @@ box-shadow:
 
 
 
+/* FOTO INICIAL */
+
+
 .foto-principal{
 
 
 width:85%;
 
 
-max-width:350px;
+max-width:360px;
 
 
 
@@ -662,14 +766,13 @@ border-radius:30px;
 
 box-shadow:
 
-0 25px 80px black;
+0 25px 70px black;
 
 
 
 animation:
 
 flutuar 4s infinite;
-
 
 }
 
@@ -685,6 +788,7 @@ transform:translateY(-15px);
 
 }
 
+
 }
 
 
@@ -695,16 +799,17 @@ transform:translateY(-15px);
 
 
 
+/* ======================
+CARDS
+====================== */
 
-
-/* MUSICA */
 
 
 .player-box,
 .card,
 .evento,
-.tempo div,
-.concha{
+.concha,
+.tempo div{
 
 
 background:
@@ -715,18 +820,17 @@ rgba(255,255,255,.12);
 
 backdrop-filter:
 
-blur(15px);
+blur(18px);
 
 
 
 border:
 
-1px solid rgba(255,255,255,.2);
+1px solid rgba(255,255,255,.25);
 
 
 
 border-radius:25px;
-
 
 
 padding:25px;
@@ -735,11 +839,13 @@ padding:25px;
 
 box-shadow:
 
-0 20px 50px rgba(0,0,0,.3);
-
+0 20px 60px rgba(0,0,0,.4);
 
 
 }
+
+
+
 
 
 
@@ -748,11 +854,15 @@ box-shadow:
 
 audio{
 
+
 width:100%;
+
 
 margin-top:20px;
 
+
 }
+
 
 
 
@@ -777,16 +887,18 @@ font-weight:bold;
 letter-spacing:5px;
 
 
-color:#a8f0ff;
+color:#b8f5ff;
 
 
 
 text-shadow:
 
-0 0 25px #00bfff;
+0 0 30px #00bfff;
 
 
 }
+
+
 
 
 
@@ -800,9 +912,7 @@ text-shadow:
 display:grid;
 
 
-grid-template-columns:
-
-repeat(3,1fr);
+grid-template-columns:repeat(3,1fr);
 
 
 
@@ -810,29 +920,14 @@ gap:15px;
 
 
 
-max-width:450px;
-
-
-}
-
-
-
-.tempo{
-
-grid-template-columns:
-
-repeat(3,1fr);
+margin-top:25px;
 
 }
-
 
 
 
 
 span{
-
-
-display:block;
 
 
 font-size:30px;
@@ -841,11 +936,13 @@ font-size:30px;
 font-weight:bold;
 
 
-color:#9feaff;
+color:#9eeaff;
+
+
+display:block;
 
 
 }
-
 
 
 
@@ -867,10 +964,12 @@ display:flex;
 gap:20px;
 
 
+
 width:100%;
 
 
 overflow-x:auto;
+
 
 
 scroll-snap-type:x mandatory;
@@ -881,9 +980,7 @@ scroll-snap-type:x mandatory;
 
 
 
-
 .galeria::-webkit-scrollbar{
-
 
 display:none;
 
@@ -922,52 +1019,9 @@ object-fit:cover;
 border-radius:20px;
 
 
-}
-
-
-
-
-
-
-
-
-
-
-
-/* LINHA DO TEMPO */
-
-
-.timeline .evento{
-
-
-margin:20px;
-
-
-max-width:500px;
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-/* SEGREDO */
-
-
-.concha{
-
-
-font-size:50px;
-
 
 cursor:pointer;
+
 
 
 transition:.4s;
@@ -977,16 +1031,51 @@ transition:.4s;
 
 
 
+.card img:hover{
 
-.concha:hover{
+
+transform:scale(1.05);
+
+}
 
 
-transform:scale(1.15);
+
+
+
+
+
+
+
+/* CONCHA */
+
+
+
+.concha{
+
+
+font-size:55px;
+
+
+cursor:pointer;
+
+
+transition:.5s;
 
 
 }
 
 
+
+.concha.abrir{
+
+
+transform:
+
+scale(1.3)
+rotate(15deg);
+
+
+}
 
 
 
@@ -997,6 +1086,7 @@ transform:scale(1.15);
 
 
 /* CARTA */
+
 
 
 .area-carta{
@@ -1012,6 +1102,9 @@ height:300px;
 
 
 }
+
+
+
 
 
 
@@ -1041,6 +1134,7 @@ z-index:5;
 
 
 
+
 .envelope:before{
 
 
@@ -1053,13 +1147,15 @@ position:absolute;
 inset:0;
 
 
+
 background:
 
 linear-gradient(
 135deg,
-#703cff,
-#00bfff
+#7845ff,
+#00cfff
 );
+
 
 
 border-radius:25px;
@@ -1068,13 +1164,10 @@ border-radius:25px;
 
 box-shadow:
 
-0 30px 70px #005eff;
+0 30px 70px #004cff;
 
 
 }
-
-
-
 
 
 
@@ -1095,9 +1188,10 @@ border-right:
 160px solid transparent;
 
 
+
 border-top:
 
-120px solid #83eaff;
+120px solid #9feaff;
 
 
 
@@ -1110,12 +1204,13 @@ z-index:3;
 
 
 
+
 .saindo{
 
 
 transform:
 
-translateX(260px)
+translateX(250px)
 rotate(10deg);
 
 
@@ -1124,9 +1219,6 @@ opacity:0;
 
 
 }
-
-
-
 
 
 
@@ -1144,6 +1236,7 @@ width:380px;
 
 
 min-height:280px;
+
 
 
 left:-30px;
@@ -1173,18 +1266,18 @@ opacity:0;
 
 
 
-transform:
-
-scale(.7);
+transform:scale(.7);
 
 
 
 transition:1s;
 
 
+
 box-shadow:
 
-0 20px 60px rgba(0,0,0,.5);
+0 20px 70px black;
+
 
 
 }
@@ -1198,38 +1291,141 @@ box-shadow:
 opacity:1;
 
 
-transform:
-
-scale(1);
+transform:scale(1);
 
 
 }
+
+
 
 
 
 .papel h3{
 
 
+font-size:30px;
+
+
+color:#a9efff;
+
+
+}
+
+
+
+
+
+/* FOTO TELA CHEIA */
+
+
+
+#visualFoto{
+
+
+position:fixed;
+
+
+inset:0;
+
+
+
+background:
+
+rgba(0,0,0,.9);
+
+
+
+display:none;
+
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+
+z-index:200;
+
+
+}
+
+
+
+
+#visualFoto img{
+
+
+max-width:90%;
+
+
+max-height:90%;
+
+
+border-radius:25px;
+
+
+
+box-shadow:
+
+0 0 50px #00bfff;
+
+
+}
+
+
+
+
+
+
+
+/* CORAÇÃO */
+
+
+
+.coracao{
+
+
+position:fixed;
+
+
+z-index:300;
+
+
 font-size:28px;
 
 
-color:#9feaff;
+animation:
+
+subirCoracao 2s forwards;
 
 
 }
 
 
 
-.papel p{
+
+@keyframes subirCoracao{
 
 
-color:white;
+to{
 
 
-font-size:16px;
+transform:
+
+translateY(-200px)
+scale(1.5);
+
+
+opacity:0;
 
 
 }
+
+
+}
+
 
 
 
@@ -1242,11 +1438,23 @@ font-size:16px;
 .final{
 
 
-min-height:80vh;
+background:
 
+linear-gradient(
+transparent,
+#000
+);
 
 }
 
+
+
+#contadorFinal{
+
+
+color:#a9eeff;
+
+}
 
 
 
@@ -1276,14 +1484,6 @@ font-size:25px;
 
 
 
-.area-carta{
-
-width:320px;
-
-}
-
-
-
 .papel{
 
 width:320px;
@@ -1294,14 +1494,20 @@ left:0;
 
 
 
+.area-carta{
 
-.contador-beijo,
-.tempo{
-
-grid-template-columns:repeat(3,1fr);
+width:320px;
 
 }
 
+
+
+
+.data{
+
+font-size:25px;
+
+}
 
 
 
